@@ -203,26 +203,8 @@
     <title>Powder Player</title>
   </head>
   <body tabindex="-1">
-     <div id="app">
-        <p> p2p Player API</p>
-        <input type="text" id="magnet_txt_id" value = 'magnet:?xt=urn:btih:340BCA5566F454A6DA3EB6D9B57A6DEC3F33B6C4&dn=North+Woods+Law+S07E03+Weed+It+and+Reap+720p+HDTV+x264-W4F%5Brarbg%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce'/>
-        <button onClick = on_magnet_click()> Add Magnet </button>
-        <p></p>
-        <input type="text" id="fn_txt_id" value = 'D:/node.js/[rutracker.org].podvig_odessy.torrent'/>
-        <button onClick = on_add_torrent()> Add Torrent</button>
-        <p></p>
-        <button onClick = on_open_local_torrent()> open_local_torrent </button>
-        <button onClick = on_open_local_video()> open_local_video </button>
-        <p></p>
-        <button onClick = on_play_now()> Play Now </button>
-        <button onClick = on_play()> Play </button>
-        <button onClick = on_stop()> Stop </button>
-        <p>Player:</p>
-         <canvas id="fake-canvas" style={{display: 'none'}} />
-      </div>
-
-    <script src="js/main.js"></script>
-
+     <div id="app"></div>
+    
     <script type="text/javascript">
       if (process.env.NODE_ENV === 'development') {
           var head = document.getElementsByTagName('head')[0];
@@ -230,46 +212,9 @@
           script.type = 'text/javascript';
           script.src = 'http://localhost:35729/livereload.js';
           head.appendChild(script);
-    }
-
-    function on_open_local_torrent(){
-        (new p2pPlayerAPI()).open_local_torrent();
-    }
-
-    function on_open_local_video(){
-        (new p2pPlayerAPI()).open_local_video();
-    }
-
-    function on_magnet_click(){
-        var api = new p2pPlayerAPI();
-        var url = document.getElementById("magnet_txt_id").value;
-        api.open_magnet(url);
-    }
-
-    function on_add_torrent(){
-        var api = new p2pPlayerAPI();
-        var fn = document.getElementById("fn_txt_id").value;
-        api.open_torrent(fn);
-    }
-
-    function on_play_now(){
-        var api = new p2pPlayerAPI();
-        api.play_now();
-    }
-
-    function on_play()
-    {
-        var api = new p2pPlayerAPI();
-        api.play();
-    }
-
-    function on_stop()
-    {
-        var api = new p2pPlayerAPI();
-        api.stop();
-    }
-
+      }
     </script>
 
+      <script src="js/main.js"></script>
   </body>
 </html>
