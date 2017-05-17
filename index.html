@@ -205,7 +205,9 @@
   <body tabindex="-1">
      <div id="app">
         <p> p2p Player API</p>
-        <input type="text" id="magnet_txt_id" value = 'magnet:?xt=urn:btih:340BCA5566F454A6DA3EB6D9B57A6DEC3F33B6C4&dn=North+Woods+Law+S07E03+Weed+It+and+Reap+720p+HDTV+x264-W4F%5Brarbg%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce'/>
+        <input type="text" id="magnet_txt_id" value = 
+        'magnet:?xt=urn:btih:5C12FB4E8A46DEC355DA2EAC94DB3E272C79ABC6'
+        />
         <button onClick = on_magnet_click()> Add Magnet </button>
         <p></p>
         <input type="text" id="fn_txt_id" value = 'D:/node.js/[rutracker.org].podvig_odessy.torrent'/>
@@ -214,9 +216,25 @@
         <button onClick = on_open_local_torrent()> open_local_torrent </button>
         <button onClick = on_open_local_video()> open_local_video </button>
         <p></p>
+        <button onClick = on_get_torrent_path()> get_torrent_path </button>
+        <button onClick = on_get_torrent_files_number()> get_torrent_files_number </button>
+        <p></p>
+        <input type="text" id="file_index_id" value = '0'/>
         <button onClick = on_play_now()> Play Now </button>
         <button onClick = on_play()> Play </button>
+        <button onClick = on_pause()> Pause </button>
         <button onClick = on_stop()> Stop </button>
+        <p></p>
+        <button onClick = on_get_playlist_items_count()> playlist_items_count </button>
+        <button onClick = on_get_playlist_current_item()> playlist_current_item </button>
+        <button onClick = on_log_playlist()> log_playlist </button>
+        <button onClick = on_get_player_item_desc()> player_item_desc </button>
+        <button onClick = on_get_player_position()> player_position </button>
+        <p></p>
+        <input type="text" id="player_position_id" value = '0.0'/>
+
+        <button onClick = on_set_player_position()> set_player_position </button>
+
         <p>Player:</p>
          <canvas id="fake-canvas" style={{display: 'none'}} />
       </div>
@@ -252,9 +270,21 @@
         api.open_torrent(fn);
     }
 
+
+    function on_get_torrent_path(){
+        var path = (new p2pPlayerAPI()).get_torrent_path();
+        console.log("path = " + path);
+    }
+
+    function on_get_torrent_files_number(){
+        var torrent_files_number = (new p2pPlayerAPI()).get_torrent_files_number();
+        console.log("torrent_files_number="+torrent_files_number);
+    }
+
     function on_play_now(){
         var api = new p2pPlayerAPI();
-        api.play_now();
+        var file_index = document.getElementById("file_index_id").value;
+        api.play_now(file_index);
     }
 
     function on_play()
@@ -263,10 +293,65 @@
         api.play();
     }
 
+    function on_pause()
+    {
+        var api = new p2pPlayerAPI();
+        api.pause();
+    }
+
     function on_stop()
     {
         var api = new p2pPlayerAPI();
         api.stop();
+    }
+
+    function on_get_playlist_items_count(){
+        var playlist_items_count = (new p2pPlayerAPI()).get_playlist_items_count();
+        console.log("playlist_items_count = " + playlist_items_count);
+    }
+
+    function on_get_playlist_current_item(){
+        var playlist_current_item = (new p2pPlayerAPI()).get_playlist_current_item();
+        console.log("playlist_current_item = " + playlist_current_item);
+    }
+
+    function on_log_playlist(){
+        (new p2pPlayerAPI()).log_playlist();
+    }
+
+    function on_get_player_item_desc(){
+        var player_item_desc = (new p2pPlayerAPI()).get_player_item_desc();
+        console.log("player_item_desc = " + player_item_desc);
+    }
+
+    function on_get_player_item_desc(){
+        var player_item_desc = (new p2pPlayerAPI()).get_player_item_desc();
+        console.log("player_item_desc = " + player_item_desc);
+
+        var player_item_duration = (new p2pPlayerAPI()).get_player_item_duration();
+        console.log("player_item_duration = " + player_item_duration);
+
+        var player_item_byteSize = (new p2pPlayerAPI()).get_player_item_byteSize();
+        console.log("player_item_byteSize = " + player_item_byteSize);
+
+        var player_item_path = (new p2pPlayerAPI()).get_player_item_path();
+        console.log("player_item_path = " + player_item_path);
+
+        var player_item_torrentHash = (new p2pPlayerAPI()).get_player_item_torrentHash();
+        console.log("player_item_torrentHash = " + player_item_torrentHash);
+
+        var player_item_title = (new p2pPlayerAPI()).get_player_item_title();
+        console.log("player_item_title = " + player_item_title);
+    }
+
+    function on_get_player_position(){
+        var player_position = (new p2pPlayerAPI()).get_player_position();
+        console.log("player_position = " + player_position);
+    }
+
+    function on_set_player_position(){
+        var pos = parseFloat(document.getElementById("player_position_id").value);
+        (new p2pPlayerAPI()).set_player_position(pos);
     }
 
     </script>

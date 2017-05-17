@@ -54,12 +54,27 @@ class p2pPlayerAPI {
         TorrentActions.addTorrent(url);
     }
 
-    play_now()
+    get_torrent_path()
     {
         var engineState = engineStore.getState(),
-            modalState = ModalStore.getState(),
+            torrent = engineState.torrents[engineState.infoHash];
+
+        return torrent.path;
+    }
+
+    get_torrent_files_number()
+    {
+        var engineState = engineStore.getState(),
+            torrent = engineState.torrents[engineState.infoHash];
+
+        return torrent.files.length;
+    }
+
+    play_now(file_index)
+    {
+        var engineState = engineStore.getState(),
             torrent = engineState.torrents[engineState.infoHash],
-            file = torrent.files[0];//modalState.index];
+            file = torrent.files[file_index];
 
         if (/^win/.test(process.platform)) var pathBreak = "\\";
         else var pathBreak = "/";
@@ -87,7 +102,98 @@ class p2pPlayerAPI {
     play(){
         player.wcjs.play();
     }
+    pause(){
+        player.wcjs.pause();
+    }
     stop(){
         player.wcjs.stop();
+    }
+    get_playlist_items_count()
+    {
+        return player.wcjs.playlist.items.count;
+    }
+    get_playlist_current_item()
+    {
+        return player.wcjs.playlist.currentItem;
+    }
+    log_playlist()
+    {
+        for (var i = 0; i < player.wcjs.playlist.items.count; i++) {
+            console.log(player.wcjs.playlist.items[i].mrl);
+        }
+    }
+    get_player_item_desc()
+    {
+        var player_item_desc = player.itemDesc();
+        /*
+        URL : ""
+        album:""
+        artist:""
+        artworkURL:""
+        copyright:""
+        date:""
+        description:""
+        disabled:false
+        duration:7833000
+        encodedBy:""
+        genre:""
+        language:""
+        mrl:"http://127.0.0.1:61046/0"
+        nowPlaying:""
+        parsed:true
+        publisher:""
+        rating:""
+        setting:Object
+            byteSize:1467893760
+            idx:0
+            path:"C:\Users\User\AppData\Local\Temp\Powder-Player\torrent-stream\fdf09d6fd04cf2a1ecad436ee900563ade146861\Podvig Odessi.avi"
+            streamID:"0"
+            title:"Podvig Odessi"
+            torrentHash:"fdf09d6fd04cf2a1ecad436ee900563ade146861"
+        title:"Podvig Odessi"
+        trackID:""
+        trackNumber:""
+        */
+        return player_item_desc;
+    }
+
+    get_player_item_duration()
+    {
+        var player_item_desc = player.itemDesc();
+        return player_item_desc.duration;
+    }
+
+    get_player_item_byteSize()
+    {
+        var player_item_desc = player.itemDesc();
+        return player_item_desc.setting.byteSize;
+    }
+
+    get_player_item_path()
+    {
+        var player_item_desc = player.itemDesc();
+        return player_item_desc.setting.path;
+    }
+
+    get_player_item_torrentHash()
+    {
+        var player_item_desc = player.itemDesc();
+        return player_item_desc.setting.torrentHash;
+    }
+
+    get_player_item_title()
+    {
+        var player_item_desc = player.itemDesc();
+        return player_item_desc.title;
+    }
+
+    get_player_position()
+    {
+        return player.wcjs.position;
+    }
+
+    set_player_position(pos)
+    {
+        player.wcjs.position = pos;
     }
 }
