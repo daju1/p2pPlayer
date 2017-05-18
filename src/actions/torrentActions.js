@@ -23,7 +23,7 @@ class torrentActions {
         );
     }
 
-    addTorrent(torrent) {
+    addTorrent(torrent, callback_torrent_inited, callback_torrent_got_content, callback_started_torrent_dashboard, callback_torrent_ok)	{
         var TorrentUtil = require('../utils/stream/torrentUtil');
         this.dispatch();
         TorrentUtil.init(torrent)
@@ -31,6 +31,10 @@ class torrentActions {
                 ModalActions.metaUpdate({
                     type: 'torrent',
                     data: instance
+                });
+
+                process.nextTick(function () {
+                    callback_torrent_inited();
                 });
                 return instance;
             })
@@ -50,6 +54,9 @@ class torrentActions {
                 return TorrentUtil.getContents(instance.files, instance.infoHash);
             })
             .then((files) => {
+               process.nextTick(function () {
+                   callback_torrent_got_content(files);
+               });
                if (ls('askFiles') && files.files_total > 1) {
                     ModalActions.fileSelector(files);
                     ipcRenderer.send('app:bitchForAttention');
@@ -93,7 +100,12 @@ class torrentActions {
     
                         PlayerActions.addPlaylist(newData);
 
-                        HistoryStore.getState().history.replaceState(null, 'torrentDashboard');
+                        //HistoryStore.getState().history.replaceState(null, 'torrentDashboard');
+
+
+                        process.nextTick(function () {
+                            callback_started_torrent_dashboard();
+                        });
                     }
 
 
@@ -104,6 +116,9 @@ class torrentActions {
                                 metaParser.push(el);
                             });
                         }
+                        process.nextTick(function () {
+                            callback_torrent_ok();
+                        });
                     },1000);
 
                     ModalActions.close();

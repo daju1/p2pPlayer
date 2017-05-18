@@ -33,6 +33,24 @@ import routes from './js/routes';
 
 webUtil.disableGlobalBackspace();
 
+var callback_torrent_inited = function()
+{
+    console.log("callback_torrent_inited");
+}
+
+var callback_torrent_got_content = function(files)
+{
+    console.log("callback_torrent_got_content files = " + files);
+    console.log("files.files_total=" + files.files_total);
+}
+var callback_started_torrent_dashboard = function()
+{
+    console.log("callback_started_torrent_dashboard");
+}
+var callback_torrent_ok = function()
+{
+    console.log("callback_torrent_ok");
+}
 
 class p2pPlayerAPI {
 
@@ -46,12 +64,20 @@ class p2pPlayerAPI {
     }
     open_torrent(fn)
     {
-        TorrentActions.addTorrent(fn);
+        TorrentActions.addTorrent(fn
+            , callback_torrent_inited
+            , callback_torrent_got_content
+            , callback_started_torrent_dashboard
+            , callback_torrent_ok);
     }
 
     open_magnet(url)
     {
-        TorrentActions.addTorrent(url);
+        TorrentActions.addTorrent(url
+            , callback_torrent_inited
+            , callback_torrent_got_content
+            , callback_started_torrent_dashboard
+            , callback_torrent_ok);
     }
 
     get_torrent_path()
