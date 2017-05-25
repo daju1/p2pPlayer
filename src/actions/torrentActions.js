@@ -1,7 +1,7 @@
 import ModalActions from '../components/Modal/actions';
 import PlayerActions from '../components/Player/actions';
 import EngineStore from '../stores/engineStore';
-import HistoryStore from '../stores/historyStore';
+//import HistoryStore from '../stores/historyStore';
 import _ from 'lodash';
 import alt from '../alt';
 import path from 'path';
@@ -23,7 +23,12 @@ class torrentActions {
         );
     }
 
-    addTorrent(torrent, callback_torrent_inited, callback_torrent_got_content, callback_started_torrent_dashboard, callback_torrent_ok)	{
+    addTorrent(torrent, 
+            callback_torrent_inited, 
+            callback_torrent_got_content, 
+            callback_started_torrent_dashboard, 
+            callback_torrent_ok)
+    {
         var TorrentUtil = require('../utils/stream/torrentUtil');
         this.dispatch();
         TorrentUtil.init(torrent)

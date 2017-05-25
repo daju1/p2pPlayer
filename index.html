@@ -218,6 +218,7 @@
         <p></p>
         <button onClick = on_get_torrent_path()> get_torrent_path </button>
         <button onClick = on_get_torrent_files_number()> get_torrent_files_number </button>
+        <button onClick = on_get_torrent_current_progress()> get_torrent_current_progress </button>
         <p></p>
         <input type="text" id="file_index_id" value = '0'/>
         <button onClick = on_play_now()> Play Now </button>
@@ -279,6 +280,10 @@
     function on_get_torrent_files_number(){
         var torrent_files_number = (new p2pPlayerAPI()).get_torrent_files_number();
         console.log("torrent_files_number="+torrent_files_number);
+    }
+
+    function on_get_torrent_current_progress(){
+        (new p2pPlayerAPI()).get_torrent_current_progress();
     }
 
     function on_play_now(){

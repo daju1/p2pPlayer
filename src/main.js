@@ -85,6 +85,9 @@ class p2pPlayerAPI {
         var engineState = engineStore.getState(),
             torrent = engineState.torrents[engineState.infoHash];
 
+        if (!torrent)
+            return "";
+
         return torrent.path;
     }
 
@@ -93,7 +96,45 @@ class p2pPlayerAPI {
         var engineState = engineStore.getState(),
             torrent = engineState.torrents[engineState.infoHash];
 
+        if (!torrent)
+            return -1;
+
         return torrent.files.length;
+    }
+
+    get_torrent_current_progress() {
+        var engineState = engineStore.getState(),
+            torrent = engineState.torrents[engineState.infoHash];
+
+        if (!torrent)
+            return;
+
+        var fileList = [];
+        var backColor = '#3e3e3e';
+        var progress = torrent.torrent.pieces.downloaded / torrent.torrent.pieces.length;
+        console.log("torrent_current_progress="+progress);
+
+        var finished = false;
+        if (progress == 1) {
+            finished = true;
+        }
+        torrent.files.forEach( (el, ij) => {
+            var fileProgress = Math.round(torrent.torrent.pieces.bank.filePercent(el.offset, el.length) * 100);
+            console.log("torrent_current_file id = " + el.fileID);
+            console.log("torrent_current_file name = " + el.name);
+            console.log("torrent_current_file path = " + el.path);
+            console.log("torrent_current_file length = " + el.length);
+            console.log("torrent_current_file offset = " + el.offset);
+
+            console.log("torrent_current_fileProgress="+fileProgress);
+            console.log("torrent_current_file ij = "+ij);
+
+            var fileFinished = false;
+            if (finished || fileProgress >= 100) {
+                fileProgress = 100;
+                fileFinished = true;
+            }
+        })
     }
 
     play_now(file_index)
@@ -101,6 +142,9 @@ class p2pPlayerAPI {
         var engineState = engineStore.getState(),
             torrent = engineState.torrents[engineState.infoHash],
             file = torrent.files[file_index];
+			
+		if (!file)
+			return;
 
         if (/^win/.test(process.platform)) var pathBreak = "\\";
         else var pathBreak = "/";

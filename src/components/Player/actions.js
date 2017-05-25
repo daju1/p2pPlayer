@@ -4,7 +4,7 @@ import {
     ipcRenderer
 }
 from 'electron';
-import HistoryStore from '../../stores/historyStore';
+//import HistoryStore from '../../stores/historyStore';
 import torrentUtil from '../../utils/stream/torrentUtil';
 import player from './utils/player';
 import ls from 'local-storage';
@@ -37,7 +37,7 @@ class PlayerActions {
     }
 
     setDesc(obj) {
-        var playerState = this.alt.stores.playerStore.getState();
+        //var playerState = this.alt.stores.playerStore.getState();
         var wcjs = player.wcjs;
         if (typeof obj.idx === 'undefined')
             obj.idx = wcjs.playlist.currentItem;
@@ -78,10 +78,10 @@ class PlayerActions {
             noStart = true;
             data = data.files;
         } else if (!player.wcjs.playlist.itemCount) {
-            HistoryStore.getState().history.replaceState(null, 'player');
+            //HistoryStore.getState().history.replaceState(null, 'player');
         }
 
-        var playerState = this.alt.stores.playerStore.getState();
+        //var playerState = this.alt.stores.playerStore.getState();
         var wcjs = player.wcjs;
 
         if (!wcjs) {
