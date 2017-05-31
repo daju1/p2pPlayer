@@ -6,20 +6,20 @@ from 'remote';
  
 import alt from 'alt';
 
-import ModalActions from './js/components/Modal/actions';
-import MainMenuActions from './js/components/MainMenu/actions';
-import PlayerActions from './js/components/Player/actions';
-import TorrentActions from './js/actions/torrentActions';
+import ModalActions from './components/Modal/actions';
+import MainMenuActions from './components/MainMenu/actions';
+import PlayerActions from './components/Player/actions';
+import TorrentActions from './actions/torrentActions';
 
-import sorter from './js/components/Player/utils/sort';
-import parser from './js/components/Player/utils/parser';
-import metaParser from './js/components/Player/utils/metaParser';
-import supported from './js/utils/isSupported';
+import sorter from './components/Player/utils/sort';
+import parser from './components/Player/utils/parser';
+import metaParser from './components/Player/utils/metaParser';
+import supported from './utils/isSupported';
 
-import engineStore from './js/stores/engineStore';
-import ModalStore from './js/components/Modal/store';
+import engineStore from './stores/engineStore';
+import ModalStore from './components/Modal/store';
 
-import player from './js/components/Player/utils/player';
+import player from './components/Player/utils/player';
 
 
 
@@ -27,8 +27,8 @@ import player from './js/components/Player/utils/player';
 import _ from 'lodash';
 
 
-import webUtil from './js/utils/webUtil';
-import routes from './js/routes';
+import webUtil from './utils/webUtil';
+import routes from './routes';
 
 
 webUtil.disableGlobalBackspace();
