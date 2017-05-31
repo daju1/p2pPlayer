@@ -12,7 +12,6 @@
   "description": "Powder is the future of all torrent requirements, it's a hybrid between a Torrent Client (Peerflix) and a Customized Player (WebChimera.js).",
   "relese-name": "Nightingale",
   "homepage": "http://powder.media/",
-  "main": "js/browser.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/daju1/p2pPlayer.git"
@@ -21,6 +20,9 @@
   "scripts": {
     "start": "grunt",
     "release": "grunt release"
+  },
+  "bin": {
+    "p2pPlayer": "./src/main.js"
   },
   "license": "GPL-3.0",
   "dependencies": {
