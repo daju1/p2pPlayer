@@ -90,7 +90,7 @@
     "streaming-media-encoder": "https://github.com/jaruba/streaming-media-encoder/tarball/master",
     "duti-prebuilt": "https://github.com/jaruba/duti-prebuilt/tarball/master",
     "youtube-dl": "https://github.com/jaruba/node-youtube-dl/tarball/master",
-    "easy-ffmpeg": "https://github.com/jaruba/easy-ffmpeg/tarball/master",
+    "easy-ffmpeg": "https://github.com/daju1/easy-ffmpeg/tarball/master",
     "multipass-torrent": "https://github.com/DavyBavy/multipass-torrent/tarball/master"
   },
   "devDependencies": {
