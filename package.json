@@ -1,5 +1,5 @@
 {
-  "name": "Powder-Player",
+  "name": "p2pPlayer",
   "version": "1.0.0",
   "author": "Branza Victor-Alexandru <branza.alex@gmail.com>",
   "contributors": [{
@@ -15,9 +15,9 @@
   "main": "js/browser.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaruba/PowderPlayer.git"
+    "url": "https://github.com/daju1/p2pPlayer.git"
   },
-  "bugs": "https://github.com/jaruba/PowderPlayer/issues",
+  "bugs": "https://github.com/daju1/p2pPlayer/issues",
   "scripts": {
     "start": "grunt",
     "release": "grunt release"

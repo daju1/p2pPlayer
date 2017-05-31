@@ -58,7 +58,7 @@ app.on('ready', () => {
         height: 522,
         icon: path.join(__dirname, '../images/icons/powder-icon.png'),
         resizable: true,
-        title: 'Powder Player',
+        title: 'p2p Player',
         center: true,
         frame: false,
         show: false
@@ -84,7 +84,7 @@ app.on('ready', () => {
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.setTitle('Powder Player');
+        mainWindow.setTitle('p2p Player');
         mainWindow.show();
         mainWindow.focus();
     });
@@ -171,7 +171,7 @@ app.on('window-all-closed', app.quit);
 
 app.on('will-quit', () => {
     try {
-        rimraf.sync(path.join(app.getPath('temp'), 'Powder-Player'));
+        rimraf.sync(path.join(app.getPath('temp'), 'p2pPlayer'));
     } catch (e) {
         console.error(e);
     }
