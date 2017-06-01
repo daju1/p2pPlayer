@@ -260,7 +260,7 @@
     }
 
     function on_magnet_click(){
-        var api = new p2pPlayerAPI();
+        var api = require('p2pPlayer');
         var url = document.getElementById("magnet_txt_id").value;
         api.open_magnet(url);
     }

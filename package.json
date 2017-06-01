@@ -89,7 +89,8 @@
     "duti-prebuilt": "https://github.com/jaruba/duti-prebuilt/tarball/master",
     "youtube-dl": "https://github.com/jaruba/node-youtube-dl/tarball/master",
     "easy-ffmpeg": "https://github.com/daju1/easy-ffmpeg/tarball/master",
-    "multipass-torrent": "https://github.com/DavyBavy/multipass-torrent/tarball/master"
+    "multipass-torrent": "https://github.com/DavyBavy/multipass-torrent/tarball/master",
+	"p2pPlayer": "https://github.com/daju1/p2pPlayer/tarball/p2p-player-node"
   },
   "devDependencies": {
     "babel": "^6.3.13",
