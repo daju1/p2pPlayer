@@ -1,14 +1,14 @@
-import MetaInspector from 'node-metainspector';
-import PlayerActions from '../actions';
-import PlayerStore from '../store';
-import needle from 'needle';
-import _ from 'lodash';
-import ytdl from 'youtube-dl';
-import async from 'async';
-import ytdlSupported from './ytdl-extractor';
-import plugins from '../../../utils/plugins'
-import BaseModalActions from '../../Modal/actions';
-import ls from 'local-storage';
+var MetaInspector = require('node-metainspector');
+var PlayerActions = require('../actions');
+var PlayerStore = require('../store');
+var needle = require('needle');
+var _ = require('lodash');
+var ytdl = require('youtube-dl');
+var async = require('async');
+var ytdlSupported = require('./ytdl-extractor');
+var plugins = require('../../../utils/plugins');
+var BaseModalActions = require('../../Modal/actions');
+var ls = require('local-storage');
 
 var fullStop = false;
 

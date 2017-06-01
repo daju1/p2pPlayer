@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import ls from 'local-storage';
+import _ = require('lodash');
+import ls = require('local-storage');
 
 var map = {
     torrentContent: true,

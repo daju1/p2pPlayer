@@ -1,5 +1,6 @@
-import alt from '../../alt';
-import playerActions from './actions';
+var alt = require('../../alt');
+
+var playerActions = require('./actions');
 
 class playerStore {
     constructor() {
@@ -7,5 +8,4 @@ class playerStore {
     }
 }
 
-export
-default alt.createStore(playerStore);
+module.exports = alt.createStore(playerStore, 'playerStore');

@@ -1,20 +1,20 @@
-import {
+var {
     dialog
 }
-from 'remote';
+= require( 'remote');
  
-import alt from '../../alt';
+var alt = require('../../alt');
 
-import ModalActions from './../Modal/actions';
-import PlayerActions from './../Player/actions';
-import TorrentActions from '../../actions/torrentActions';
+var ModalActions = require('./../Modal/actions');
+var PlayerActions = require('./../Player/actions');
+var TorrentActions = require('../../acions/torrentActions');
 
-import sorter from './../Player/utils/sort';
-import parser from './../Player/utils/parser';
-import metaParser from './../Player/utils/metaParser';
-import supported from '../../utils/isSupported';
+var sorter = require('./../Player/utils/sort');
+var parser = require('./../Player/utils/parser');
+var metaParser = require('./../Player/utils/metaParser');
+var supported = require('../../utils/isSupported');
 
-import _ from 'lodash';
+var _ = require('lodash');
 
 class MainMenuActions {
 
@@ -105,5 +105,4 @@ class MainMenuActions {
     }
 }
 
-export
-default alt.createActions(MainMenuActions);
+module.exports = alt.createActions(MainMenuActions);

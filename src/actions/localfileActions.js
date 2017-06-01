@@ -1,4 +1,4 @@
-import alt from '../alt'
+var alt = require('../alt');
 
 class localActions {
 
@@ -18,5 +18,4 @@ class localActions {
     }
 }
 
-export
-default alt.createActions(localActions);
+module.exports = alt.createActions(localActions);

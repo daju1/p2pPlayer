@@ -1,8 +1,8 @@
-import Trakt from 'trakt.tv';
-import {
+var Trakt = require('trakt.tv');
+var {
     shell
-} from 'electron';
-import ls from 'local-storage';
+} = require('electron');
+var ls = require('local-storage');
 
 var trakttv = new Trakt({
     client_id: window.atob('MTBkYTI2ZGYwYmI4NzQ5MTY5OTQ4YzU3ODJjYmEyZjMxZDJlNWQ0N2I1NzNlNGFjZDE1MzgwN2U3NjFlZWRjYQ=='),

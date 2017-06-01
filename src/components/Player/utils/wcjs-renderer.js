@@ -1,4 +1,4 @@
-import { remote, screen } from 'electron';
+var { remote, screen } = require('electron');
 
 function resizeInBounds(newWidth, newHeight) {
 

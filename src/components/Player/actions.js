@@ -1,14 +1,15 @@
-import alt from '../../alt'
-import _ from 'lodash';
-import {
+var alt = require('../../alt');
+
+var _ = require('lodash');
+var {
     ipcRenderer
 }
-from 'electron';
-//import HistoryStore from '../../stores/historyStore';
-import torrentUtil from '../../utils/stream/torrentUtil';
-import player from './utils/player';
-import ls from 'local-storage';
-import wcjsRenderer from './utils/wcjs-renderer';
+= require('electron');
+var HistoryStore = require('../../stores/historyStore');
+var torrentUtil = require('../../utils/stream/torrentUtil');
+var player = require('./utils/player');
+var ls = require('local-storage');
+var wcjsRenderer = require('./utils/wcjs-renderer');
 
 class PlayerActions {
 
@@ -37,7 +38,7 @@ class PlayerActions {
     }
 
     setDesc(obj) {
-        //var playerState = this.alt.stores.playerStore.getState();
+        var playerState = this.alt.stores.playerStore.getState();
         var wcjs = player.wcjs;
         if (typeof obj.idx === 'undefined')
             obj.idx = wcjs.playlist.currentItem;
@@ -78,10 +79,10 @@ class PlayerActions {
             noStart = true;
             data = data.files;
         } else if (!player.wcjs.playlist.itemCount) {
-            //HistoryStore.getState().history.replaceState(null, 'player');
+            HistoryStore.getState().history.replaceState(null, 'player');
         }
 
-        //var playerState = this.alt.stores.playerStore.getState();
+        var playerState = this.alt.stores.playerStore.getState();
         var wcjs = player.wcjs;
 
         if (!wcjs) {
@@ -274,5 +275,4 @@ class PlayerActions {
 }
 
 
-export
-default alt.createActions(PlayerActions);
+module.exports = alt.createActions(PlayerActions);

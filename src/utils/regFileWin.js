@@ -1,4 +1,4 @@
-import Registry from 'winreg';
+var Registry = require('winreg');
 
 var commandToArgs = command => {
     return command.map((arg) => `"${arg}"`).join(' ')

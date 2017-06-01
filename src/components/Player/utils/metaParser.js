@@ -1,14 +1,14 @@
-import _ from 'lodash';
-import async from 'async';
-import MetaInspector from 'node-metainspector';
-import parseVideo from 'video-name-parser';
-import nameToImdb from 'name-to-imdb';
-import parser from './parser';
-import traktUtil from './trakt';
-import player from './player';
-import PlayerStore from '../store';
-import PlayerActions from '../actions';
-import ls from 'local-storage';
+var _ = require('lodash');
+var async = require('async');
+var MetaInspector = require('node-metainspector');
+var parseVideo = require('video-name-parser');
+var nameToImdb = require('name-to-imdb');
+var parser = require('./parser');
+var traktUtil = require('./trakt');
+var player = require('./player');
+var PlayerStore = require('../store');
+var PlayerActions = require('../actions');
+var ls = require('local-storage');
 
 var parserQueue = async.queue((task, cb) => {
     var playerState = PlayerStore.getState();

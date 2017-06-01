@@ -1,20 +1,20 @@
 
-import _ from 'lodash';
-import SubtitleStore from '../components/SubtitleText/store';
-import SubtitleActions from '../components/SubtitleText/actions';
-import PlayerActions from '../actions';
-import BaseModalActions from '../../Modal/actions';
-import engineStore from '../../../stores/engineStore';
-import HistoryStore from '../../../stores/historyStore';
+var _ = require('lodash');
+var SubtitleStore = require('../components/SubtitleText/store');
+var SubtitleActions = require('../components/SubtitleText/actions');
+var PlayerActions = require('../actions');
+var BaseModalActions = require('../../Modal/actions');
+var engineStore = require('../../../stores/engineStore');
+var HistoryStore = require('../../../stores/historyStore');
 
-import player from './player';
-import ls from 'local-storage';
-import ModalActions from '../components/Modal/actions';
+var player = require('./player');
+var ls = require('local-storage');
+var ModalActions = require('../components/Modal/actions');
 
-import {
+var {
     ipcRenderer, shell
 }
-from 'electron';
+= require( 'electron';
 
 var sleeper = null;
 

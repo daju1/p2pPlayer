@@ -1,5 +1,5 @@
-import needle from 'needle';
-import _ from 'lodash';
+var needle = require('needle');
+var _ = require('lodash');
 
 var timeout = 0;
 var key = false;

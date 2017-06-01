@@ -1,15 +1,14 @@
-import child_process from 'child_process';
-import Promise from 'bluebird';
-import fs from 'fs';
-import path from 'path';
-import _ from 'lodash';
-import {
+var child_process = require('child_process');
+var Promise = require('bluebird');
+var fs = require('fs');
+var path = require('path');
+var _ = require('lodash');
+var {
     shell
-} from 'electron';
+} = require('electron');
 
 
-export
-default {
+module.exports = {
     parseURL: function(url) {
         if (url.substring(0, 8) === 'magnet:?' || this.endsWith(url, '.torrent'))
             return 'torrent';

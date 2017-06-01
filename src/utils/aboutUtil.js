@@ -1,7 +1,7 @@
-import request from 'request';
-import fs from 'fs';
-import path from 'path';
-import externalActions from '../actions/externalActions';
+var request = require('request');
+var fs = require('fs');
+var path = require('path');
+var externalActions = require('../actions/externalActions');
 
 
 module.exports = {

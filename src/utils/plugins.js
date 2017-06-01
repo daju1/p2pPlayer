@@ -2,15 +2,15 @@
 // - handle negatives (social networks)
 // - google drive folders that include other folders
 
-import {
+var {
     app
-} from 'remote';
-import fs from 'fs';
-import mkdirp from 'mkdirp';
-import path from 'path';
-import ls from 'local-storage';
-import request from 'request';
-import events from 'events';
+} = require('remote');
+var fs = require('fs');
+var mkdirp = require('mkdirp');
+var path = require('path');
+var ls = require('local-storage');
+var request = require('request');
+var events = require('events');
 
 var negatives, templates, subPages, siteSupport, pornSupport;
 

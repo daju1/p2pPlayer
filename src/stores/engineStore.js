@@ -1,6 +1,6 @@
-import alt from '../alt';
-import torrentActions from '../actions/torrentActions';
-import localFilesActions from '../actions/localfileActions';
+var alt = require('../alt');
+var torrentActions = require('../actions/torrentActions');
+var localFilesActions = require('../actions/localfileActions');
 
 
 class engineStore {
@@ -30,5 +30,4 @@ class engineStore {
     }
 }
 
-export
-default alt.createStore(engineStore);
+module.exports = alt.createStore(engineStore);

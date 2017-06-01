@@ -1,19 +1,19 @@
-import player from './player';
-import ls from 'local-storage';
+var player = require('./player');
+var ls = require('local-storage');
 
-import PlayerStore from '../store';
-import PlayerActions from '../actions';
-import SubtitleStore from '../components/SubtitleText/store';
-import SubtitleActions from '../components/SubtitleText/actions';
-import ControlStore from '../components/Controls/store';
-import ControlActions from '../components/Controls/actions';
-import TimeStore from '../components/Controls/components/HumanTime/store';
-import VolumeStore from '../components/Controls/components/Volume/store';
-import VolumeActions from '../components/Controls/components/Volume/actions';
-import ProgressStore from '../components/Controls/components/ProgressBar/store';
-import ProgressActions from '../components/Controls/components/ProgressBar/actions';
-import VisibilityStore from '../components/Visibility/store';
-import VisibilityActions from '../components/Visibility/actions';
+var PlayerStore = require('../store');
+var PlayerActions = require('../actions');
+var SubtitleStore = require('../components/SubtitleText/store');
+var SubtitleActions = require('../components/SubtitleText/actions');
+var ControlStore = require('../components/Controls/store');
+var ControlActions = require('../components/Controls/actions');
+var TimeStore = require('../components/Controls/components/HumanTime/store');
+var VolumeStore = require('../components/Controls/components/Volume/store');
+var VolumeActions = require('../components/Controls/components/Volume/actions');
+var ProgressStore = require('../components/Controls/components/ProgressBar/store');
+var ProgressActions = require('../components/Controls/components/ProgressBar/actions');
+var VisibilityStore = require('../components/Visibility/store');
+var VisibilityActions = require('../components/Visibility/actions');
 
 var hotkeys = {};
 

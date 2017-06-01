@@ -1,5 +1,5 @@
-import alt from '../alt';
-import historyActions from '../actions/historyActions';
+var alt = require('../alt');
+var historyActions = require('../actions/historyActions');
 
 
 class historyStore {
@@ -18,5 +18,4 @@ class historyStore {
 
 }
 
-export
-default alt.createStore(historyStore);
+module.exports = alt.createStore(historyStore);

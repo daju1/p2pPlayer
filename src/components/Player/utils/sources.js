@@ -1,5 +1,5 @@
-import ytdl from 'youtube-dl';
-import ls from 'local-storage';
+var ytdl = require('youtube-dl');
+var ls = require('local-storage');
 
 module.exports = {
     youtubeDL: (link, cb) => {

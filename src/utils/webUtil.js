@@ -1,5 +1,4 @@
-export
-default {
+module.exports = {
     disableGlobalBackspace() {
         document.onkeydown = (e = window.event) => {
             var doPrevent;

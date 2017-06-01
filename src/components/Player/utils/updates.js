@@ -1,11 +1,11 @@
-import notifier from 'node-notifier';
-import needle from 'needle';
-import path from 'path';
-import ls from 'local-storage';
-import fs from 'fs';
-import {
+var notifier = require('node-notifier');
+var needle = require('needle');
+var path = require('path');
+var ls = require('local-storage');
+var fs = require('fs');
+var {
     shell
-} from 'electron';
+} = require('electron');
 
 module.exports = {
     checkUpdates: () => {

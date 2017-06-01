@@ -1,9 +1,9 @@
-import _ from 'lodash';
-import events from 'events';
-import traktUtil from './trakt';
-import wcjsRenderer from './wcjs-renderer';
-import ls from 'local-storage';
-import engineStore from '../../../stores/engineStore';
+var _ = require('lodash');
+var events = require('events');
+var traktUtil = require('./trakt');
+var wcjsRenderer = require('./wcjs-renderer');
+var ls = require('local-storage');
+var engineStore = require('../../../stores/engineStore');
 
 var player = {
     aspect: 'Default',

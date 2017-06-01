@@ -1,6 +1,6 @@
-import GrowingFile from 'growing-file';
-import http from 'http';
-import _ from 'lodash';
+var GrowingFile = require('growing-file');
+var http = require('http');
+var _ = require('lodash');
 
 var rangeParser = require('range-parser');
 var pump = require('pump');

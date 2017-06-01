@@ -1,15 +1,15 @@
-import MimeUtil from './mimeDetectorUtil';
-import PlayerActions from './../components/Player/actions';
-import LinkSupport from './../components/Player/utils/supportedLinks';
-import metaParser from './../components/Player/utils/metaParser';
-import ModalActions from './../components/Modal/actions';
-import torrentActions from './../actions/torrentActions';
-import Promise from 'bluebird';
-import _ from 'lodash';
-import ytdl from 'youtube-dl';
-import ytdlSupported from './../components/Player/utils/ytdl-extractor';
-import plugins from './plugins';
-import ls from 'local-storage';
+var MimeUtil = require('./mimeDetectorUtil');
+var PlayerActions = require('./../components/Player/actions');
+var LinkSupport = require('./../components/Player/utils/supportedLinks');
+var metaParser = require('./../components/Player/utils/metaParser');
+var ModalActions = require('./../components/Modal/actions');
+var torrentActions = require('./../actions/torrentActions');
+var Promise = require('bluebird');
+var _ = require('lodash');
+var ytdl = require('youtube-dl');
+var ytdlSupported = require('./../components/Player/utils/ytdl-extractor');
+var plugins = require('./plugins');
+var ls = require('local-storage');
 
 module.exports = (inputvalue) => {
     return new Promise((resolve, reject) => {

@@ -1,8 +1,8 @@
-import VisibilityActions from '../components/Visibility/actions';
-import PlayerStore from '../store';
-import SubtitleActions from '../components/SubtitleText/actions';
-import _ from 'lodash';
-import player from './player';
+var VisibilityActions = require('../components/Visibility/actions');
+var PlayerStore = require('../store');
+var SubtitleActions = require('../components/SubtitleText/actions');
+var _ = require('lodash');
+var player = require('./player');
 
 module.exports = {
     

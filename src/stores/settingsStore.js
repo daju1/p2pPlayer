@@ -1,5 +1,5 @@
-import alt from '../alt';
-import externalActions from '../actions/externalActions';
+var alt = require('../alt');
+var externalActions = require('../actions/externalActions');
 
 
 class externalStore {
@@ -43,5 +43,4 @@ class externalStore {
 
 }
 
-export
-default alt.createStore(externalStore);
+module.exports = alt.createStore(externalStore);

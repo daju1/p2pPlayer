@@ -1,10 +1,9 @@
-import path from 'path';
-import Promise from 'bluebird';
-import getPort from 'get-port';
+var path = require('path');
+var Promise = require('bluebird');
+var getPort = require('get-port');
 
 
-export
-default {
+module.exports = {
     init: function(torrent) {
 
     },

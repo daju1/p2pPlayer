@@ -1,4 +1,3 @@
-import alt from '../alt'
+var alt = require('../alt');
 
-export
-default alt.generateActions('history');
+module.exports = alt.generateActions('history');

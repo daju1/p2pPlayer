@@ -1,4 +1,4 @@
-import React from 'react-dom';
+var React = require('react-dom');
 
 /*
 Change log:

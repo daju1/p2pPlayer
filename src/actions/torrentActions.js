@@ -1,18 +1,18 @@
-import ModalActions from '../components/Modal/actions';
-import PlayerActions from '../components/Player/actions';
-import EngineStore from '../stores/engineStore';
-//import HistoryStore from '../stores/historyStore';
-import _ from 'lodash';
-import alt from '../alt';
-import path from 'path';
-import {
+var ModalActions = require('../components/Modal/actions');
+var PlayerActions = require('../components/Player/actions');
+var EngineStore = require('../stores/engineStore');
+var HistoryStore = require('../stores/historyStore');
+var _ = require( 'lodash');
+var alt = require('../alt');
+var path = require('path');
+var {
     ipcRenderer
 }
-from 'electron';
-import ls from 'local-storage';
-import parser from '../components/Player/utils/parser';
-import player from '../components/Player/utils/player';
-import metaParser from '../components/Player/utils/metaParser';
+= require('electron');
+var ls = require('local-storage');
+var parser = require('../components/Player/utils/parser');
+var player = require('../components/Player/utils/player');
+var metaParser = require('../components/Player/utils/metaParser');
 
 class torrentActions {
 
@@ -102,10 +102,10 @@ class torrentActions {
                         }
                         // start torrent dashboard
                         var newData = { noStart: true, files: newFiles };
-    
+
                         PlayerActions.addPlaylist(newData);
 
-                        //HistoryStore.getState().history.replaceState(null, 'torrentDashboard');
+                        HistoryStore.getState().history.replaceState(null, 'torrentDashboard');
 
 
                         process.nextTick(function () {
@@ -136,8 +136,4 @@ class torrentActions {
     }
 }
 
-
-
-
-export
-default alt.createActions(torrentActions);
+module.exports = alt.createActions(torrentActions);

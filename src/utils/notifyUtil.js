@@ -1,9 +1,8 @@
-import notifier from 'node-notifier';
-import path from 'path';
-import _ from 'lodash';
+var notifier = require('node-notifier');
+var path = require('path');
+var _ = require('lodash');
 
-export
-default {
+module.exports = {
     notify: (notifyparams, clickFunction) => {
         notifyparams = _.defaults(notifyparams, {
             icon: path.join(__dirname, '../../', 'images/icons/logo.png'),

@@ -1,4 +1,4 @@
-import engineStore from '../../../stores/engineStore';
+var engineStore = require('../../../stores/engineStore');
 
 var player;
 var prebufMap = [];

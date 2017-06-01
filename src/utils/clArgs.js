@@ -1,14 +1,14 @@
-import ModalActions from '../components/Modal/actions';
-import PlayerActions from '../components/Player/actions';
-import parser from '../components/Player/utils/parser';
-import sorter from '../components/Player/utils/sort';
-import metaParser from '../components/Player/utils/metaParser';
-import TorrentActions from '../actions/torrentActions';
-import MessageActions from '../components/Message/actions';
-import linkUtil from './linkUtil';
-import _ from 'lodash';
-import url from 'url';
-import path from 'path';
+var ModalActions = require('../components/Modal/actions');
+var PlayerActions = require('../components/Player/actions');
+var parser = require('../components/Player/utils/parser');
+var sorter = require('../components/Player/utils/sort');
+var metaParser = require('../components/Player/utils/metaParser');
+var TorrentActions = require('../actions/torrentActions');
+var MessageActions = require('../components/Message/actions');
+var linkUtil = require('./linkUtil');
+var _ = require('lodash');
+var url = require('url');
+var path = require('path');
 
 var getParam = (el, arg) => {
     return el.replace(arg + '=', '').split('"').join('');

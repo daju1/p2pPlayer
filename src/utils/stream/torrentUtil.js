@@ -1,21 +1,21 @@
-import torrentWorker from 'torrent-worker';
-import EngineStore from '../../stores/engineStore';
-import path from 'path';
-import {
+var torrentWorker = require('torrent-worker');
+var EngineStore = require('../../stores/engineStore');
+var path = require('path');
+var {
     app
-} from 'remote';
-import readTorrent from 'read-torrent';
-import Promise from 'bluebird';
-import getPort from 'get-port';
-import _ from 'lodash';
-import ls from 'local-storage';
-import torrentActions from '../../actions/torrentActions';
+} = require('remote');
+var readTorrent = require('read-torrent');
+var Promise = require('bluebird');
+var getPort = require('get-port');
+var _ = require('lodash');
+var ls = require('local-storage');
+var torrentActions = require('../../actions/torrentActions');
 
-import sorter from '../../components/Player/utils/sort';
-import parser from '../../components/Player/utils/parser';
-import supported from '../isSupported';
+var sorter = require('../../components/Player/utils/sort');
+var parser = require('../../components/Player/utils/parser');
+var supported = require('../isSupported');
 
-const temp = path.join(app.getPath('temp'), 'Powder-Player');
+const temp = path.join(app.getPath('temp'), 'p2p-Player');
 
 module.exports = {
     streams: {},

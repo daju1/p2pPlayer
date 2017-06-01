@@ -1,25 +1,25 @@
-import _ from 'lodash';
-import ls from 'local-storage';
+var _ = require('lodash');
+var ls = require('local-storage');
 
-import player from './player';
-import traktUtil from './trakt';
-import ui from './ui';
-import linkSupport from './supportedLinks';
-import prebuffering from './prebuffering';
-import path from 'path';
+var player = require('./player');
+var traktUtil = require('./trakt)');
+var ui = require('./ui');
+var linkSupport = require('./supportedLinks');
+var prebuffering = require('./prebuffering');
+var path = require('path');
 
-import PlayerActions from '../actions';
-import ProgressStore from '../components/Controls/components/ProgressBar/store';
-import ControlStore from '../components/Controls/store';
-import ControlActions from '../components/Controls/actions';
-import TimeActions from '../components/Controls/components/HumanTime/actions';
-import ProgressActions from '../components/Controls/components/ProgressBar/actions';
-import VisibilityActions from '../components/Visibility/actions';
-import SubtitleActions from '../components/SubtitleText/actions';
-import engineStore from '../../../stores/engineStore';
-import torrentUtil from '../../../utils/stream/torrentUtil';
-import torrentActions from '../../../actions/torrentActions';
-import sources from './sources';
+var PlayerActions = require('../actions');
+var ProgressStore = require('../components/Controls/components/ProgressBar/store');
+var ControlStore = require('../components/Controls/store');
+var ControlActions = require('../components/Controls/actions');
+var TimeActions = require('../components/Controls/components/HumanTime/actions');
+var ProgressActions = require('../components/Controls/components/ProgressBar/actions');
+var VisibilityActions = require('../components/Visibility/actions');
+var SubtitleActions = require('../components/SubtitleText/actions');
+var engineStore = require('../../../stores/engineStore');
+var torrentUtil = require('../../../utils/stream/torrentUtil');
+var torrentActions = require('../../../actions/torrentActions');
+var sources = require('./sources');
 
 var events = {};
 

@@ -1,19 +1,19 @@
-import child from 'child_process';
-import fs from 'fs';
-import {
+var child = require('child_process');
+var fs = require('fs');
+var {
     shell
 }
-from 'electron';
-import {
+= require('electron');
+var {
     app
-} from 'remote';
+} = require('remote');
 const dataPath = app.getPath('userData');
-import player from '../components/Player/utils/player';
-import regFileW32 from './regFileWin';
-import path from 'path';
-import supported from './isSupported';
-import MessageActions from '../components/Message/actions';
-import duti from 'duti-prebuilt';
+var player = require('../components/Player/utils/player');
+var regFileW32 = require('./regFileWin');
+var path = require('path');
+var supported = require('./isSupported');
+var MessageActions = require('../components/Message/actions');
+var duti = require('duti-prebuilt');
 
 var notify = () => {
     try {

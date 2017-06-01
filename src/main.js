@@ -1,34 +1,34 @@
 
-import {
+var {
     dialog
 }
-from 'remote';
+= require('remote');
  
-import alt from 'alt';
+var alt = require('./alt');
 
-import ModalActions from './components/Modal/actions';
-import MainMenuActions from './components/MainMenu/actions';
-import PlayerActions from './components/Player/actions';
-import TorrentActions from './actions/torrentActions';
+var ModalActions = require('./components/Modal/actions');
+var MainMenuActions = require('./components/MainMenu/actions');
+var PlayerActions = require('./components/Player/actions');
+var TorrentActions = require('./actions/torrentActions');
 
-import sorter from './components/Player/utils/sort';
-import parser from './components/Player/utils/parser';
-import metaParser from './components/Player/utils/metaParser';
-import supported from './utils/isSupported';
+var sorter = require('./components/Player/utils/sort');
+var parser = require('./components/Player/utils/parser');
+var metaParser = require('./components/Player/utils/metaParser');
+var supported = require('./utils/isSupported');
 
-import engineStore from './stores/engineStore';
-import ModalStore from './components/Modal/store';
+var engineStore = require('./stores/engineStore');
+var ModalStore = require('./components/Modal/store');
 
-import player from './components/Player/utils/player';
-
-
+var player = require('./components/Player/utils/player');
 
 
-import _ from 'lodash';
 
 
-import webUtil from './utils/webUtil';
-import routes from './routes';
+var _ = require('lodash');
+
+
+var webUtil = require('./utils/webUtil');
+var routes = require('./routes');
 
 
 webUtil.disableGlobalBackspace();
@@ -216,7 +216,7 @@ class p2pPlayerAPI {
         setting:Object
             byteSize:1467893760
             idx:0
-            path:"C:\Users\User\AppData\Local\Temp\Powder-Player\torrent-stream\fdf09d6fd04cf2a1ecad436ee900563ade146861\Podvig Odessi.avi"
+            path:"C:\Users\User\AppData\Local\Temp\p2p-Player\torrent-stream\fdf09d6fd04cf2a1ecad436ee900563ade146861\Podvig Odessi.avi"
             streamID:"0"
             title:"Podvig Odessi"
             torrentHash:"fdf09d6fd04cf2a1ecad436ee900563ade146861"

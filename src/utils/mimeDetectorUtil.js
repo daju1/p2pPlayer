@@ -1,13 +1,12 @@
-import Promise from 'bluebird';
-import path from 'path';
-import mime from 'mime';
-import request from 'request';
-import nodeURL from 'url';
-import _ from 'lodash';
-import supported from './isSupported';
+var Promise = require('bluebird');
+var path = require('path');
+var mime = require('mime');
+var request = require('request');
+var nodeURL = require('url');
+var _ = require('lodash');
+var supported = require('./isSupported');
 
-export
-default {
+module.exports = {
     parseURL(url) {
             return new Promise((resolve, reject) => {
                 this.getHeaders(url).then(headers => {

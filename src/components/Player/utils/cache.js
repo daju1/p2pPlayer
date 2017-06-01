@@ -1,6 +1,6 @@
-import _ from 'lodash';
-import engineStore from '../../../stores/engineStore';
-import ProgressActions from '../components/Controls/components/ProgressBar/actions';
+var _ = require('lodash');
+var engineStore = require('../../../stores/engineStore');
+var ProgressActions = require('../components/Controls/components/ProgressBar/actions');
 
 var playingPart = 0;
 var targetPos = 0;
