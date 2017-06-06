@@ -28,7 +28,7 @@ var _ = require('lodash');
 
 
 var webUtil = require('./utils/webUtil');
-var routes = require('./routes');
+//var routes = require('./routes');
 
 
 webUtil.disableGlobalBackspace();
@@ -142,9 +142,9 @@ class p2pPlayerAPI {
         var engineState = engineStore.getState(),
             torrent = engineState.torrents[engineState.infoHash],
             file = torrent.files[file_index];
-			
-		if (!file)
-			return;
+
+        if (!file)
+            return;
 
         if (/^win/.test(process.platform)) var pathBreak = "\\";
         else var pathBreak = "/";

@@ -4,10 +4,11 @@ var {
 = require( 'remote');
  
 var alt = require('../../alt');
+var helper = require('../../helper');
 
 var ModalActions = require('./../Modal/actions');
 var PlayerActions = require('./../Player/actions');
-var TorrentActions = require('../../acions/torrentActions');
+var TorrentActions = require('../../actions/torrentActions');
 
 var sorter = require('./../Player/utils/sort');
 var parser = require('./../Player/utils/parser');
@@ -16,9 +17,16 @@ var supported = require('../../utils/isSupported');
 
 var _ = require('lodash');
 
-class MainMenuActions {
+var MainMenuActions = function() {
+    function MainMenuActions() {
+        helper.classCallCheck(this, MainMenuActions);
+    }
+    helper.createClass(MainMenuActions, [{
+        key: 'openURL',
+        value: function openURL() {
+            var paste = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : !1;
 
-    openURL(paste = false) { // for pasting later 
+    //openURL(paste = false) { // for pasting later 
 
         if (typeof paste !== 'string')
             ModalActions.open({
@@ -27,8 +35,11 @@ class MainMenuActions {
             });
 
     }
+    }, {
+        key: 'openLocal',
+        value: function openLocal(type) {
 
-    openLocal(type) {
+    //openLocal(type) {
         var filters;
         
         if (document.activeElement) {
@@ -103,6 +114,8 @@ class MainMenuActions {
         });
 
     }
-}
+    }]);
+    return MainMenuActions;
+}();
 
 module.exports = alt.createActions(MainMenuActions);

@@ -1,4 +1,5 @@
 var alt = require('../../alt');
+var helper = require('../../helper');
 
 var _ = require('lodash');
 var {
@@ -11,9 +12,15 @@ var player = require('./utils/player');
 var ls = require('local-storage');
 var wcjsRenderer = require('./utils/wcjs-renderer');
 
-class PlayerActions {
+var PlayerActions = function() {
+    function PlayerActions() {
+        helper.classCallCheck(this, PlayerActions);
+    }
 
-    announcement(obj) {
+    helper.createClass(PlayerActions, [{
+        key: 'announcement',
+        value: function announcement(obj) {
+
         var announcer = {};
         if (typeof obj === 'string') obj = {
             text: obj
@@ -37,7 +44,10 @@ class PlayerActions {
             player.events.emit('announce', obj);
     }
 
-    setDesc(obj) {
+    }, {
+        key: 'setDesc',
+        value: function setDesc(obj) {
+
         var playerState = this.alt.stores.playerStore.getState();
         var wcjs = player.wcjs;
         if (typeof obj.idx === 'undefined')
@@ -65,7 +75,10 @@ class PlayerActions {
         }
     }
     
-    addPlaylist(data) {
+    }, {
+        key: 'addPlaylist',
+        value: function addPlaylist(data) {
+
         if (!player.wcjs) {
             player.wcjsInit();
         }
@@ -167,7 +180,9 @@ class PlayerActions {
         }
     }
 
-    replaceMRL(newObj) {
+    }, {
+        key: 'replaceMRL',
+        value: function replaceMRL(newObj) {
 
         var progressState = this.alt.stores.ProgressStore.getState();
         var wcjs = player.wcjs;
@@ -222,7 +237,9 @@ class PlayerActions {
             wcjs.playlist.playItem(newObj.x);
     }
 
-    pulse() {
+    }, {
+        key: 'pulse',
+        value: function pulse() {
         var wcjs = player.wcjs;
 
         if (wcjs) {
@@ -235,7 +252,10 @@ class PlayerActions {
         }
     }
 
-    flood() {
+    }, {
+        key: 'flood',
+        value: function flood() {
+
         var wcjs = player.wcjs;
 
         if (wcjs) {
@@ -245,7 +265,10 @@ class PlayerActions {
         }
     }
 
-    updateImage(image) {
+    }, {
+        key: 'updateImage',
+        value: function updateImage(image) {
+
         if (document.getElementById('canvasEffect')) {
             var wcjs = player.wcjs;
             if (!wcjs.input.hasVout && image) {
@@ -264,15 +287,25 @@ class PlayerActions {
         }
     }
 
-    toggleAlwaysOnTop(state = true) {
+    //toggleAlwaysOnTop(state = true) {
+    }, {
+         key: 'toggleAlwaysOnTop',
+        value: function toggleAlwaysOnTop() {
+            var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : !0;
         ipcRenderer.send('app:alwaysOnTop', state);
     }
 
-    togglePowerSave(state = true) {
+    //togglePowerSave(state = true) {
+    }, {
+        key: 'togglePowerSave',
+        value: function togglePowerSave() {
+            var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : !0;
         ipcRenderer.send('app:powerSaveBlocker', state);
     }
 
-}
+    }]);
+    return PlayerActions;
+}();
 
 
 module.exports = alt.createActions(PlayerActions);

@@ -4,6 +4,7 @@ var EngineStore = require('../stores/engineStore');
 var HistoryStore = require('../stores/historyStore');
 var _ = require( 'lodash');
 var alt = require('../alt');
+var helper = require('../helper');
 var path = require('path');
 var {
     ipcRenderer
@@ -14,16 +15,15 @@ var parser = require('../components/Player/utils/parser');
 var player = require('../components/Player/utils/player');
 var metaParser = require('../components/Player/utils/metaParser');
 
-class torrentActions {
-
-    constructor() {
-        this.generateActions(
-            'add',
-            'clear'
-        );
+var torrentActions = function() {
+    function torrentActions() {
+        helper.classCallCheck(this, torrentActions);
+        this.generateActions('add', 'clear');
     }
+    helper.createClass(torrentActions, [{
 
-    addTorrent(torrent, 
+        key: 'addTorrent',
+        value: function addTorrent(torrent, 
             callback_torrent_inited, 
             callback_torrent_got_content, 
             callback_started_torrent_dashboard, 
@@ -133,7 +133,8 @@ class torrentActions {
                 //ModalActions.close();
                 console.error(err);
             });
-    }
-}
-
+        }
+    }]);
+    return torrentActions;
+}();
 module.exports = alt.createActions(torrentActions);

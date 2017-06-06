@@ -1,21 +1,23 @@
 var alt = require('../alt');
+var helper = require('../helper');
 
-class localActions {
 
-    constructor() {
-        this.generateActions(
-            'stream'
-        );
+var localActions = function() {
+    function localActions() {
+        helper.classCallCheck(this, localActions);
+        this.generateActions('stream');
     }
-
-    stream(file) {
-        this.dispatch();
-    }
-
-    host(file) {
-        this.dispatch();
-
-    }
-}
-
+    helper.createClass(localActions, [{
+        key: 'stream',
+        value: function stream(file) {
+            this.dispatch();
+        }
+    }, {
+        key: 'host',
+        value: function host(file) {
+            this.dispatch();
+        }
+    }]);
+    return localActions;
+}();
 module.exports = alt.createActions(localActions);

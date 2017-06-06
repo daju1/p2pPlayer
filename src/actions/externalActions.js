@@ -1,30 +1,32 @@
 var alt = require('../alt');
+var helper = require('../helper');
 
-class externalActions {
 
-    constructor() {
-        this.generateActions(
-            'gotLicense',
-            'gotContributors',
-            'gotVersion'
-        );
+
+var externalActions = function() {
+    function externalActions() {
+        helper.classCallCheck(this, externalActions);
+        this.generateActions('gotLicense', 'gotContributors', 'gotVersion');
     }
-
-    getLicense() {
-        this.dispatch();
-        require('../utils/aboutUtil').getLicense();
-    }
-
-    getContributors() {
-        this.dispatch();
-        require('../utils/aboutUtil').getContributors();
-    }
-
-    getVersion() {
-        this.dispatch();
-        require('../utils/aboutUtil').getVersion();
-    }
-}
-
-
+    helper.createClass(externalActions, [{
+        key: 'getLicense',
+        value: function getLicense() {
+            this.dispatch();
+            require('../utils/aboutUtil').getLicense();
+        }
+    }, {
+        key: 'getContributors',
+        value: function getContributors() {
+            this.dispatch();
+            require('../utils/aboutUtil').getContributors();
+        }
+    }, {
+        key: 'getVersion',
+        value: function getVersion() {
+            this.dispatch();
+            require('../utils/aboutUtil').getVersion();
+        }
+    }]);
+    return externalActions;
+}();
 module.exports = alt.createActions(externalActions);
