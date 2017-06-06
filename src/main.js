@@ -267,3 +267,5 @@ class p2pPlayerAPI {
         player.wcjs.position = pos;
     }
 }
+
+module.exports.api = new p2pPlayerAPI();
