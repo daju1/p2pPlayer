@@ -1,9 +1,7 @@
-var ModalActions = require('../components/Modal/actions');
-var PlayerActions = require('../components/Player/actions');
-var EngineStore = require('../stores/engineStore');
-var HistoryStore = require('../stores/historyStore');
-var _ = require( 'lodash');
 var alt = require('../alt');
+var ModalActions = require('../components/Modal/actions');
+var _ = require( 'lodash');
+
 var helper = require('../helper');
 var path = require('path');
 var {
@@ -45,7 +43,9 @@ var torrentActions = function() {
             })
             .then((instance) => {
                 this.actions.add(instance);
-                if (!EngineStore.state.torrents[instance.infoHash]['stream-port']) {
+
+                var engineStore = require('../stores/engineStore');
+                if (!engineStore.state.torrents[instance.infoHash]['stream-port']) {
                     return new Promise((resolve) => {
                         instance.on('listening', function() {
                             resolve(instance);
@@ -71,13 +71,14 @@ var torrentActions = function() {
                     var file = folder[Object.keys(folder)[0]];
                     var newFiles = [];
                     var queueParser = [];
+                    var engineStore = require('../stores/engineStore');
 
                     if (files.ordered.length) {
                         files.ordered.forEach( (file, ij) => {
                             if (file.name.toLowerCase().replace("sample","") == file.name.toLowerCase() && file.name != "ETRG.mp4" && file.name.toLowerCase().substr(0,5) != "rarbg") {
                                 newFiles.push({
                                     title: parser(file.name).name(),
-                                    uri: 'http://127.0.0.1:' + EngineStore.state.torrents[file.infoHash].server.address().port + '/' + file.id,
+                                    uri: 'http://127.0.0.1:' + engineStore.state.torrents[file.infoHash].server.address().port + '/' + file.id,
                                     byteSize: file.size,
                                     torrentHash: file.infoHash,
                                     streamID: file.id,
@@ -85,13 +86,14 @@ var torrentActions = function() {
                                 });
                                 queueParser.push({
                                     idx: ij,
-                                    url: 'http://127.0.0.1:' + EngineStore.state.torrents[file.infoHash].server.address().port + '/' + file.id,
+                                    url: 'http://127.0.0.1:' + engineStore.state.torrents[file.infoHash].server.address().port + '/' + file.id,
                                     filename: file.name
                                 });
                             }
                         });
                     }
 
+                    var PlayerActions = require('../components/Player/actions');
                     if (ls('downloadType') == 0 && !ls('playerType')) {
                         // start with internal player
                         PlayerActions.addPlaylist(newFiles);
@@ -105,12 +107,17 @@ var torrentActions = function() {
 
                         PlayerActions.addPlaylist(newData);
 
-                        HistoryStore.getState().history.replaceState(null, 'torrentDashboard');
+                        var historyStore = require('../stores/historyStore');
+                        historyStore.getState().history.replaceState(null, 'torrentDashboard');
 
 
                         process.nextTick(function () {
                             callback_started_torrent_dashboard();
                         });
+                    }
+                    else
+                    {
+                        PlayerActions.addPlaylist(newFiles);
                     }
 
 
