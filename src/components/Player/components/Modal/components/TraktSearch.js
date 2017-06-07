@@ -67,7 +67,7 @@ module.exports = React.createClass({
                 res.some( (el, ij) => {
                     if (['movie', 'show'].indexOf(el.type) > -1) {
                         var newTitle = el[el.type].title;
-                        if (el[el.type].year) newTitle += ' ('+el[el.type].year+')');
+                        if (el[el.type].year) newTitle += ' ('+el[el.type].year+')';
 
                         resObj.push(newTitle);
                         optsObj[newTitle] = el[el.type].ids.trakt;

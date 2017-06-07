@@ -8,7 +8,7 @@ var {
 var ModalActions = require('../actions');
 var ModalStore = require('../store');
 var EngineStore = require('../../../stores/engineStore');
-var TorrentActions = require('../../../actions/torrentActions'
+var TorrentActions = require('../../../actions/torrentActions');
 var PlayerActions = require('../../Player/actions');
 var player = require('../../Player/utils/player');
 var parser = require('../../Player/utils/parser');

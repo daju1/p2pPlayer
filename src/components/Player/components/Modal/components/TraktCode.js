@@ -5,7 +5,7 @@ var {
 var _ = require('lodash');
 
 var ModalActions = require('../actions');
-var PlayerStore = require('../../../store'
+var PlayerStore = require('../../../store');
 
 var traktUtil = require('../../../utils/trakt');
 var player = require('../../../utils/player');

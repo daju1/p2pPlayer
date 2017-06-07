@@ -65,7 +65,7 @@ module.exports = React.createClass({
         });
     },
 
-    getContents() {
+    /*getContents() {
         switch (this.state.type) {
             case 'TraktCode':
                 return <TraktCode />;
@@ -91,7 +91,7 @@ module.exports = React.createClass({
             case 'CastingPlayerScanner':
                 return <CastingPlayerScanner />;
         }
-    },
+    },*/
 
     render() {
         return '';/*(
