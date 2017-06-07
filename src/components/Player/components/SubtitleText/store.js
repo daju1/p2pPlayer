@@ -1,7 +1,7 @@
-import alt from '../../../../alt'
-import subUtil from '../../utils/subtitles';
-import SubtitleActions from './actions';
-import PlayerStore from '../../store';
+var alt = require('../../../../alt');
+var subUtil = require('../../utils/subtitles');
+var SubtitleActions = require('./actions');
+var PlayerStore = require('../../store');
 
 class SubtitleStore {
 
@@ -23,5 +23,4 @@ class SubtitleStore {
 
 }
 
-export
-default alt.createStore(SubtitleStore);
+module.exports = alt.createStore(SubtitleStore);

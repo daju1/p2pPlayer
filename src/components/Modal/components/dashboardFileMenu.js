@@ -1,25 +1,24 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var {
     History
 }
-from 'react-router';
-import {
+= require('react-router');
+var {
     clipboard, shell
-} from 'electron';
-import _ from 'lodash';
+} = require('electron');
+var _ = require('lodash');
 
-import ModalActions from '../actions';
-import ModalStore from '../store';
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
 
-import remote from 'remote';
+var remote = require('remote');
 
-import engineStore from '../../../stores/engineStore';
-import supported from '../../../utils/isSupported';
-import player from '../../Player/utils/player';
+var engineStore = require('../../../stores/engineStore');
+var supported = require('../../../utils/isSupported');
+var player = require('../../Player/utils/player');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History, PureRenderMixin],
 
@@ -92,7 +91,7 @@ default React.createClass({
         ModalActions.close();
     },
 
-    render() {
+    render() { return '';/*
         var engineState = engineStore.getState(),
             modalState = ModalStore.getState(),
             torrent = engineState.torrents[engineState.infoHash],
@@ -168,6 +167,6 @@ default React.createClass({
                 </div>
 
             </paper-dialog>
-        );
+        );*/
     }
 });

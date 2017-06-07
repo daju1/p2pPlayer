@@ -1,13 +1,12 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 
-import ProgressStore from './store';
-import ProgressActions from './actions';
-import player from '../../../../utils/player';
-import _ from 'lodash';
+var ProgressStore = require('./store');
+var ProgressActions = require('./actions');
+var player = require('../../../../utils/player');
+var _ = require('lodash');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -64,7 +63,7 @@ default React.createClass({
                 width: this.state.cache * 100 + '%'
             }
         };
-        return (
+        return '';/*(
             <div>
                 <div
                     className="scrobbler-padding"
@@ -79,6 +78,6 @@ default React.createClass({
                     <div ref="scrobbler-handle" className="handle"/>
                 </div>
             </div>
-        );
+        );*/
     }
 });

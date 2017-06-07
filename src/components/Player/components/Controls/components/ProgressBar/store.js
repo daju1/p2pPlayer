@@ -1,13 +1,13 @@
-import alt from '../../../../../../alt'
-import progressActions from './actions';
-import _ from 'lodash';
-import player from '../../../../utils/player';
-import traktUtil from '../../../../utils/trakt';
-import TimeStore from '../HumanTime/store';
-import TimeActions from '../HumanTime/actions';
-import VisibilityStore from '../../../Visibility/store';
-import VisibilityActions from '../../../Visibility/actions';
-import {handleTime} from '../../../../utils/time';
+var alt = require('../../../../../../alt'
+var progressActions = require('./actions');
+var _ = require('lodash');
+var player = require('../../../../utils/player');
+var traktUtil = require('../../../../utils/trakt');
+var TimeStore = require('../HumanTime/store');
+var TimeActions = require('../HumanTime/actions');
+var VisibilityStore = require('../../../Visibility/store');
+var VisibilityActions = require('../../../Visibility/actions');
+var {handleTime} = require('../../../../utils/time');
 
 var throttlers = {
     scrobbleKeys: false
@@ -167,5 +167,4 @@ class ProgressStore {
 
 }
 
-export
-default alt.createStore(ProgressStore);
+module.exports = alt.createStore(ProgressStore);

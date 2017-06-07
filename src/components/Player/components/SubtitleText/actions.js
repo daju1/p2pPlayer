@@ -1,11 +1,11 @@
-import alt from '../../../../alt'
-import PlayerStore from '../../store';
-import PlayerActions from '../../actions';
-import ControlActions from '../Controls/actions';
-import subUtil from '../../utils/subtitles';
-import ls from 'local-storage';
-import _ from 'lodash';
-import player from '../../utils/player';
+var alt = require('../../../../alt'
+var PlayerStore = require('../../store');
+var PlayerActions = require('../../actions');
+var ControlActions = require('../Controls/actions');
+var subUtil = require('../../utils/subtitles');
+var ls = require('local-storage');
+var _ = require('lodash');
+var player = require('../../utils/player');
 
 class SubtitleActions {
 
@@ -96,5 +96,4 @@ class SubtitleActions {
 }
 
 
-export
-default alt.createActions(SubtitleActions);
+module.exports = alt.createActions(SubtitleActions);

@@ -1,20 +1,19 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     clipboard
-} from 'electron';
+} = require('electron');
 
-import ModalActions from '../actions';
-import ModalStore from '../store';
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
 
-import MessageActions from '../../Message/actions';
-import PlayerActions from '../../Player/actions';
+var MessageActions = require('../../Message/actions');
+var PlayerActions = require('../../Player/actions');
 
-import linkUtil from '../../../utils/linkUtil';
-import _ from 'lodash';
+var linkUtil = require('../../../utils/linkUtil');
+var _ = require('lodash');
 
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         return {
@@ -65,7 +64,7 @@ default React.createClass({
         });
     },
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px'}}
@@ -98,6 +97,6 @@ default React.createClass({
               </paper-button>
                 
             </paper-dialog>
-        );
+        );*/
     }
 });

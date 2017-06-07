@@ -1,24 +1,23 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     clipboard
-} from 'clipboard'
+} = require('clipboard');
 
-import ModalActions from '../actions';
+var ModalActions = require('../actions');
 
-import PlayerActions from '../../../actions';
+var PlayerActions = require('../../../actions');
 
-import traktUtil from '../../../utils/trakt';
-import player from '../../../utils/player';
+var traktUtil = require('../../../utils/trakt');
+var player = require('../../../utils/player');
 
-import _ from 'lodash';
-import ls from 'local-storage';
+var _ = require('lodash');
+var ls = require('local-storage');
 
 var results = [],
     optsResult = {},
     traktResult = {};
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         return {
@@ -68,7 +67,7 @@ default React.createClass({
                 res.some( (el, ij) => {
                     if (['movie', 'show'].indexOf(el.type) > -1) {
                         var newTitle = el[el.type].title;
-                        if (el[el.type].year) newTitle += ' ('+el[el.type].year+')';
+                        if (el[el.type].year) newTitle += ' ('+el[el.type].year+')');
 
                         resObj.push(newTitle);
                         optsObj[newTitle] = el[el.type].ids.trakt;
@@ -206,7 +205,7 @@ default React.createClass({
         this.selected(a.detail.value);
     },
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px', maxWidth: '90%', backgroundColor: '#303030', padding: '20px'}}
@@ -237,6 +236,6 @@ default React.createClass({
                 
                 <div style={{clear:'both'}} />
             </paper-dialog>
-        );
+        );*/
     }
 });

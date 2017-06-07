@@ -1,12 +1,11 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 
-import TooltipStore from './store';
-import TooltipActions from './actions';
-import player from '../../../../utils/player';
+var TooltipStore = require('./store');
+var TooltipActions = require('./actions');
+var player = require('../../../../utils/player');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -42,8 +41,8 @@ default React.createClass({
                 display: player.wcjs.length ? this.state.progressHover ? 'inline-block' : this.state.scrobbleTooltip : 'none'
             }
         };
-        return (
+        return '';/*(
             <div ref="scrobbler-tooltip" className="tooltip" style={scrobblerStyles.tooltip}>{this.state.humanTime}</div>
-        );
+        );*/
     }
 });

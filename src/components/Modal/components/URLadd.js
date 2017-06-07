@@ -1,23 +1,22 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     clipboard
-} from 'electron';
+} = require('electron');
 
-import ModalActions from '../actions';
+var ModalActions = require('../actions');
 
-import MessageActions from '../../Message/actions';
-import PlayerActions from '../../Player/actions';
-import plugins from '../../../utils/plugins';
+var MessageActions = require('../../Message/actions');
+var PlayerActions = require('../../Player/actions');
+var plugins = require('../../../utils/plugins');
 
-import linkUtil from '../../../utils/linkUtil';
-import _ from 'lodash';
+var linkUtil = require('../../../utils/linkUtil');
+var _ = require('lodash');
 
-import filmonUtil from '../../Player/utils/filmon';
-import ls from 'local-storage';
+var filmonUtil = require('../../Player/utils/filmon');
+var ls = require('local-storage');
 
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     componentDidMount() {
         this.refs['dialog'].open();
@@ -159,7 +158,7 @@ default React.createClass({
         }, 100);
     },
     render() {
-        return (
+        return "";/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px'}}
@@ -192,6 +191,6 @@ default React.createClass({
               </paper-button>
                 
             </paper-dialog>
-        );
+        );*/
     }
 });

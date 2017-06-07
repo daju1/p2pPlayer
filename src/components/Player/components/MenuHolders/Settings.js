@@ -1,12 +1,11 @@
-import React from 'react';
+var React = require('react');
 
-import SettingsPanel from '../Settings.react';
-import PlayerActions from '../../actions';
-import VisibilityStore from '../Visibility/store';
-import VisibilityActions from '../Visibility/actions';
+var SettingsPanel = require('../Settings.react');
+var PlayerActions = require('../../actions');
+var VisibilityStore = require('../Visibility/store');
+var VisibilityActions = require('../Visibility/actions');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         var visibilityState = VisibilityStore.getState();
@@ -43,14 +42,14 @@ default React.createClass({
     },
 
     render() {
-        return (
+        return '';/*(
             <div className={this.state.uiHidden ? 'playlist-container' : this.state.open ? 'playlist-container show' : 'playlist-container'}>
                 <div className="playlist-controls" / >
                 <div className="playlist-holder settings-holder" style={{marginLeft: '0', height: '100%', textAlign: 'center'}}>
                     <SettingsPanel />
                 </div> 
             </div>
-        );
+        );*/
     }
 
 });

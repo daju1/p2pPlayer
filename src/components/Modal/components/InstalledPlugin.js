@@ -1,17 +1,16 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ModalActions from '../actions';
-import ModalStore from '../store';
-import _ from 'lodash';
-import plugins from '../../../utils/plugins';
-import MessageActions from '../../Message/actions';
-import linkUtil from '../../../utils/linkUtil';
-import filmonUtil from '../../Player/utils/filmon';
-import PlayerActions from '../../Player/actions';
-import ls from 'local-storage';
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
+var _ = require('lodash');
+var plugins = require('../../../utils/plugins');
+var MessageActions = require('../../Message/actions');
+var linkUtil = require('../../../utils/linkUtil');
+var filmonUtil = require('../../Player/utils/filmon');
+var PlayerActions = require('../../Player/actions');
+var ls = require('local-storage');
 
-export
-default React.createClass({
+module.exports = React.createClass({
     
     mixins: [PureRenderMixin],
 
@@ -155,8 +154,8 @@ default React.createClass({
         ModalActions.searchPlugin(el);
     },
 
-    render() {
-        if (!this.state.selected) return (<div style={{display: 'none'}} />);
+    render() { return "";
+        /*if (!this.state.selected) return (<div style={{display: 'none'}} />);
         if (this.state.selected.desc) {
             var descTemplate = (
                 <div style={{margin: '0'}}>
@@ -273,6 +272,6 @@ default React.createClass({
               {searcher}
               {playFeed}
             </paper-dialog>
-        );
+        );*/
     }
 });

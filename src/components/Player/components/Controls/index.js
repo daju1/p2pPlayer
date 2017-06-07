@@ -1,25 +1,24 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var {
     History
 }
-from 'react-router';
-import _ from 'lodash';
-import HumanTime from './components/HumanTime';
-import ProgressBar from './components/ProgressBar';
-import Tooltip from './components/Tooltip';
-import Volume from './components/Volume';
-import player from '../../utils/player';
-import ControlStore from './store';
-import ControlActions from './actions';
-import VolumeActions from './components/Volume/actions';
-import VisibilityStore from '../Visibility/store';
+= require('react-router');
+var _ = require('lodash');
+var HumanTime = require('./components/HumanTime');
+var ProgressBar = require('./components/ProgressBar');
+var Tooltip = require('./components/Tooltip');
+var Volume = require('./components/Volume');
+var player = require('../../utils/player');
+var ControlStore = require('./store');
+var ControlActions = require('./actions');
+var VolumeActions = require('./components/Volume/actions');
+var VisibilityStore = require('../Visibility/store');
 
-import ls from 'local-storage';
-import ui from '../../utils/ui';
+var ls = require('local-storage');
+var ui = require('../../utils/ui');
 
-export
-default React.createClass({
+module.exports = React.createClass({
     mixins: [PureRenderMixin],
 
     getInitialState() {
@@ -75,7 +74,7 @@ default React.createClass({
         document.querySelector('#controlsRipple').uiUpAction(e);
     },
     render() {
-        return (
+        return '';/*(
             <div className={this.state.uiHidden ? 'control-bar' : this.state.uiShown ? 'control-bar show' : 'control-bar'} onMouseEnter={VolumeActions.volumeIndexEffect} onMouseLeave={VolumeActions.volumeIndexEffect}>
                 <div className="controls-background" onClick={ControlActions.handlePausePlay}>
                     <paper-ripple id="controlsRipple" center noink={this.state.rippleEffects ? false : true} fit />
@@ -95,6 +94,6 @@ default React.createClass({
                 <paper-icon-button onClick={ui.toggleMenu.bind(null, 'casting')} className={'casting-toggle' + (this.state.castingOpen ? ' casting-toggle-active' : '')} icon={'hardware:cast'} noink={true} />
 
             </div>
-        );
+        );*/
     }
 });

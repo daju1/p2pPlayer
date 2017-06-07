@@ -28,7 +28,7 @@ var _ = require('lodash');
 
 
 var webUtil = require('./utils/webUtil');
-//var routes = require('./routes');
+var routes = require('./routes');
 
 
 webUtil.disableGlobalBackspace();

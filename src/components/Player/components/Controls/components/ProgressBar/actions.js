@@ -1,10 +1,10 @@
-import alt from '../../../../../../alt';
-import _ from 'lodash';
-import TooltipActions from '../Tooltip/actions';
-import VisibilityActions from '../../../Visibility/actions';
-import {handleTime} from '../../../../utils/time';
-import cacheUtil from '../../../../utils/cache';
-import player from '../../../../utils/player';
+var alt = require('../../../../../../alt');
+var _ = require('lodash');
+var TooltipActions = require('../Tooltip/actions');
+var VisibilityActions = require('../../../Visibility/actions');
+var {handleTime} = require('../../../../utils/time');
+var cacheUtil = require('../../../../utils/cache');
+var player = require('../../../../utils/player');
 
 var throttlers = {};
 
@@ -201,5 +201,4 @@ class ProgressActions {
 
 }
 
-export
-default alt.createActions(ProgressActions);
+module.exports = alt.createActions(ProgressActions);

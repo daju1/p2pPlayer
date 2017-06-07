@@ -1,5 +1,5 @@
-import alt from '../../../../alt'
-import modalActions from './actions';
+var alt = require('../../../../alt');
+var modalActions = require('./actions');
 
 
 class darkModalStore {
@@ -36,5 +36,4 @@ class darkModalStore {
     }
 }
 
-export
-default alt.createStore(darkModalStore);
+module.exports = alt.createStore(darkModalStore);

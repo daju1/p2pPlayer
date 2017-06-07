@@ -2,7 +2,7 @@ var _ = require('lodash');
 var ls = require('local-storage');
 
 var player = require('./player');
-var traktUtil = require('./trakt)');
+var traktUtil = require('./trakt');
 var ui = require('./ui');
 var linkSupport = require('./supportedLinks');
 var prebuffering = require('./prebuffering');

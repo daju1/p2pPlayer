@@ -1,4 +1,4 @@
-import alt from '../../../../alt'
+var alt = require('../../../../alt');
 
 class VisibilityActions {
 
@@ -12,5 +12,4 @@ class VisibilityActions {
 
 }
 
-export
-default alt.createActions(VisibilityActions);
+module.exports = alt.createActions(VisibilityActions);

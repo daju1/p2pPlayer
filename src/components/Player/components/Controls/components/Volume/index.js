@@ -1,11 +1,10 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ls from 'local-storage';
-import VolumeStore from './store';
-import VolumeActions from './actions';
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var ls = require('local-storage');
+var VolumeStore = require('./store');
+var VolumeActions = require('./actions');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -47,11 +46,11 @@ default React.createClass({
         VolumeActions.setVolume(t);
     },
     render() {
-        return (
+        return '';/*(
             <div>
                 <paper-icon-button onClick={VolumeActions.handleMute} icon={ 'av:' + (this.state.muted ? 'volume-off' : this.state.volume <= 0 ? 'volume-mute' : this.state.volume <= 120 ? 'volume-down' : 'volume-up') } className="volume-button" noink={true} />
                 <paper-slider onClick={this.setVolume} className="vol-slide" name="volume-slider" ref="volume-slider" min="0" max="200" steps="1" value={this.state.muted ? 0 : this.state.volume} noink={true}/>
             </div>
-        );
+        );*/
     }
 });

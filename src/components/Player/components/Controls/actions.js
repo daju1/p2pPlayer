@@ -1,11 +1,11 @@
-import alt from '../../../../alt';
-import _ from 'lodash';
-import ls from 'local-storage';
-import {
+var alt = require('../../../../alt');
+var _ = require('lodash');
+var ls = require('local-storage');
+var {
     ipcRenderer
 }
-from 'electron';
-import player from '../../utils/player';
+= require('electron');
+var player = require('../../utils/player');
 
 class ControlActions {
 
@@ -45,5 +45,4 @@ class ControlActions {
 }
 
 
-export
-default alt.createActions(ControlActions);
+module.exports = alt.createActions(ControlActions);

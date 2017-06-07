@@ -1,27 +1,26 @@
-import React from 'react';
-import _ from 'lodash';
-import {
+var React = require('react');
+var _ = require('lodash');
+var {
     History
 }
-from 'react-router';
+= require('react-router');
 
-import ModalActions from '../actions';
-import ModalStore from '../store';
-import EngineStore from '../../../stores/engineStore';
-import TorrentActions from '../../../actions/torrentActions'
-import PlayerActions from '../../Player/actions';
-import player from '../../Player/utils/player';
-import parser from '../../Player/utils/parser';
-import metaParser from '../../Player/utils/metaParser';
-import MessageActions from '../../Message/actions';
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
+var EngineStore = require('../../../stores/engineStore');
+var TorrentActions = require('../../../actions/torrentActions'
+var PlayerActions = require('../../Player/actions');
+var player = require('../../Player/utils/player');
+var parser = require('../../Player/utils/parser');
+var metaParser = require('../../Player/utils/metaParser');
+var MessageActions = require('../../Message/actions');
 
-import linkUtil from '../../../utils/linkUtil';
+var linkUtil = require('../../../utils/linkUtil');
 
 var finishedScan = false;
 var hrefFor = {};
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History],
 
@@ -393,7 +392,7 @@ multipass.import(this.state.parseLink);
         return content;
     },
 
-    generateFolder(files, name, key) {
+    /*generateFolder(files, name, key) {
         var content = [];
 
         var inc = 0;
@@ -415,7 +414,7 @@ multipass.import(this.state.parseLink);
                 </div>
             </div>
         );
-    },
+    },*/
 
     handleSelectFile(file) {
         ModalActions.thinking(true);
@@ -433,7 +432,7 @@ multipass.import(this.state.parseLink);
         });
     },
 
-    generateFile(file, key) {
+    /*generateFile(file, key) {
         return (
             <paper-icon-item key={file.fileName} onClick={this.handleSelectFile.bind(this, file)} style={{cursor: 'pointer', padding: '5px 15px', display: 'block'}} toggles={false}>
             <iron-icon icon="editor:insert-drive-file" item-icon style={{ float: 'left', display: 'block', position: 'relative', bottom: '-8px', marginRight: '10px', marginLeft: '20px', color: 'rgba(0,0,0,0.7)' }} />
@@ -443,7 +442,7 @@ multipass.import(this.state.parseLink);
             </paper-item-body>
             </paper-icon-item>
         );
-    },
+    },*/
     formatBytes(bytes, decimals) {
         if (bytes == 0) return '0 Byte';
         var k = 1000;
@@ -455,7 +454,7 @@ multipass.import(this.state.parseLink);
     render() {
         let playDisabled = this.state.selectedFile ? false : true;
         let content = this.state.allFiles ? this.getContent() : [];
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 id="torrentSelDialog"
@@ -484,6 +483,6 @@ multipass.import(this.state.parseLink);
                 </div>
 
             </paper-dialog>
-        );
+        );*/
     }
 });

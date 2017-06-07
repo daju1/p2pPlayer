@@ -1,25 +1,24 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 
-import ModalStore from './store';
-import ModalActions from './actions';
+var ModalStore = require('./store');
+var ModalActions = require('./actions');
 
-import FileStreamSelector from './components/fileStreamSelector';
-import URLContents from './components/URLadd';
-import Thinking from './components/Thinking';
-import DashboardMenu from './components/dashboardMenu';
-import DashboardFileMenu from './components/dashboardFileMenu';
-import AskRemove from './components/askRemove';
-import About from './components/about';
-import Plugin from './components/Plugin';
-import InstalledPlugin from './components/InstalledPlugin';
-import SearchPlugin from './components/SearchPlugin';
-import SearchPlugins from './components/SearchPlugins';
-import TorrentSelector from './components/torrentSelector';
-import TorrentWarning from './components/torrentWarning';
+var FileStreamSelector = require('./components/fileStreamSelector');
+var URLContents = require('./components/URLadd');
+var Thinking = require('./components/Thinking');
+var DashboardMenu = require('./components/dashboardMenu');
+var DashboardFileMenu = require('./components/dashboardFileMenu');
+var AskRemove = require('./components/askRemove');
+var About = require('./components/about');
+var Plugin = require('./components/Plugin');
+var InstalledPlugin = require('./components/InstalledPlugin');
+var SearchPlugin = require('./components/SearchPlugin');
+var SearchPlugins = require('./components/SearchPlugins');
+var TorrentSelector = require('./components/torrentSelector');
+var TorrentWarning = require('./components/torrentWarning');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -69,7 +68,7 @@ default React.createClass({
         });
     },
 
-    getContents() {
+    /*getContents() {
         switch (this.state.type) {
             case 'URLAdd':
                 return <URLContents />;
@@ -111,13 +110,13 @@ default React.createClass({
                 return <TorrentWarning />;
                 break;
         }
-    },
+    },*/
 
     render() {
-        return (
+        return '';/*(
             <div style={{width: '0px', height: '0px'}}>
                 {this.getContents()}
             </div>
-        );
+        );*/
     }
 });

@@ -1,5 +1,5 @@
-import alt from '../../../../../../alt'
-import tooltipActions from './actions';
+var alt = require('../../../../../../alt');
+var tooltipActions = require('./actions');
 
 class TooltipStore {
 
@@ -16,5 +16,4 @@ class TooltipStore {
 
 }
 
-export
-default alt.createStore(TooltipStore);
+module.exports = alt.createStore(TooltipStore);

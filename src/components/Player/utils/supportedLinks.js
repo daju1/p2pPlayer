@@ -285,5 +285,4 @@ class supportedLinks {
 
 }
 
-export
-default supportedLinks;
+module.exports = supportedLinks;

@@ -1,24 +1,23 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     shell
-} from 'electron';
+} = require('electron');
 
-import ModalActions from '../actions';
+var ModalActions = require('../actions');
 
-import PlayerStore from '../../../store';
+var PlayerStore = require('../../../store');
 
-import traktUtil from '../../../utils/trakt';
-import player from '../../../utils/player';
+var traktUtil = require('../../../utils/trakt');
+var player = require('../../../utils/player');
 
-import MetaInspector from 'node-metainspector';
+var MetaInspector = require('node-metainspector');
 
-import {
+var {
     BrowserWindow
-} from 'remote';
+} = require('remote');
 
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         var itemDesc = player.itemDesc();
@@ -139,7 +138,7 @@ default React.createClass({
         if (this.state.parsed && this.state.parsed.tag && this.state.parsed.tag.length) {
             var tags = this.state.parsed.tag;
         } else tags = [];
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '900px', textAlign: 'left', borderRadius: '3px', maxWidth: '90%', backgroundColor: '#303030', padding: '20px', overflowX: 'auto'}}
@@ -193,6 +192,6 @@ default React.createClass({
                 </paper-button>
                 
             </paper-dialog>
-        );
+        );*/
     }
 });

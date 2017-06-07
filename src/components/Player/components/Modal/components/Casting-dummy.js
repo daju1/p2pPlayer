@@ -1,8 +1,7 @@
-import React from 'react';
-import ModalActions from '../actions';
+var React = require('react');
+var ModalActions = require('../actions');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         return {
@@ -27,7 +26,7 @@ default React.createClass({
     },
 
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '900px', textAlign: 'left', borderRadius: '3px', maxWidth: '90%', backgroundColor: '#303030', padding: '20px', overflowX: 'auto'}}
@@ -52,6 +51,6 @@ default React.createClass({
                 </paper-button>
                 
             </paper-dialog>
-        );
+        );*/
     }
 });

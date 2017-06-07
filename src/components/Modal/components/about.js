@@ -1,15 +1,14 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     History
 }
-from 'react-router';
-import ModalStore from '../store';
-import ls from 'local-storage';
+= require('react-router');
+var ModalStore = require('../store');
+var ls = require('local-storage');
 
-import ModalActions from '../actions';
+var ModalActions = require('../actions');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     componentDidMount() {
         this.refs.dialog.open();
@@ -22,7 +21,7 @@ default React.createClass({
         this.refs.dialog.removeEventListener('iron-overlay-canceled', ModalActions.close);
     },
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 className="trakt-info-dialog"
@@ -56,6 +55,6 @@ default React.createClass({
                     </paper-button>
                 </div>
             </paper-dialog>
-        );
+        );*/
     }
 });

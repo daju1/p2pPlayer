@@ -1,11 +1,10 @@
-import React from 'react';
-import player from '../../utils/player';
-import SubStore from './store';
-import VisibilityStore from '../Visibility/store';
-import ls from 'local-storage';
+var React = require('react');
+var player = require('../../utils/player');
+var SubStore = require('./store');
+var VisibilityStore = require('../Visibility/store');
+var ls = require('local-storage');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         var visibilityState = VisibilityStore.getState();

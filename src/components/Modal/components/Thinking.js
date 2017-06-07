@@ -1,12 +1,11 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ModalActions from '../actions';
-import ModalStore from '../store';
-import _ from 'lodash';
-import LinkSupport from './../../Player/utils/supportedLinks';
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
+var _ = require('lodash');
+var LinkSupport = require('./../../Player/utils/supportedLinks');
 
-export
-default React.createClass({
+module.exports = React.createClass({
     
     mixins: [PureRenderMixin],
 
@@ -79,7 +78,7 @@ default React.createClass({
         }
     },
 
-    render() {
+    render() { return '';/*
         var statusText = this.state.stats.peers.total ? <p className="peers" >Connected to {this.state.stats.peers.total} Peers</p> : <p className="peers">Processing URL</p>;
         return (
             <paper-dialog ref="dialog" style={{width: '440px', textAlign: 'left', borderRadius: '3px'}} entry-animation="slide-from-top-animation" opened={false} with-backdrop>
@@ -89,6 +88,6 @@ default React.createClass({
                 <paper-button raised onClick={this.handelCancel} style={{float: 'right', marginRight: '22px', padding: '8px 15px', fontWeight: 'bold', marginTop: '0px', textTransform: 'none'}} dialog-dismiss>Cancel</paper-button>
                 {statusText}
             </paper-dialog>
-        );
+        );*/
     }
 });

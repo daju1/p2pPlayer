@@ -1,17 +1,16 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     clipboard
-} from 'electron';
-import _ from 'lodash';
+} = require('electron');
+var _ = require('lodash');
 
-import ModalActions from '../actions';
-import PlayerStore from '../../../store'
+var ModalActions = require('../actions');
+var PlayerStore = require('../../../store'
 
-import traktUtil from '../../../utils/trakt';
-import player from '../../../utils/player';
+var traktUtil = require('../../../utils/trakt');
+var player = require('../../../utils/player');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     componentDidMount() {
         this.refs.dialog.open();
@@ -44,7 +43,7 @@ default React.createClass({
         traktUtil.openTraktAuth();
     },
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px', maxWidth: '90%', backgroundColor: '#303030', padding: '20px'}}
@@ -83,6 +82,6 @@ default React.createClass({
                 Cancel
                 </paper-button>
             </paper-dialog>
-        );
+        );*/
     }
 });

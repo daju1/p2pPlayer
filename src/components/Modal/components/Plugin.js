@@ -1,13 +1,12 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ModalActions from '../actions';
-import ModalStore from '../store';
-import _ from 'lodash';
-import plugins from '../../../utils/plugins';
-import ls from 'local-storage';
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
+var _ = require('lodash');
+var plugins = require('../../../utils/plugins');
+var ls = require('local-storage');
 
-export
-default React.createClass({
+module.exports = React.createClass({
     
     mixins: [PureRenderMixin],
 
@@ -82,7 +81,7 @@ default React.createClass({
         }
     },
 
-    render() {
+    render() { return '';/*
         if (!this.state.selected) return (<div style={{display: 'none'}} />);
         if (this.state.selected.desc) {
             var descTemplate = (
@@ -152,6 +151,6 @@ default React.createClass({
 
 
             </paper-dialog>
-        );
+        );*/
     }
 });

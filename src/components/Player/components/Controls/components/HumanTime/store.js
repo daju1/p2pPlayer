@@ -1,14 +1,14 @@
-import alt from '../../../../../../alt'
-import _ from 'lodash';
-import ls from 'local-storage';
-import {handleTime} from '../../../../utils/time';
-import timeActions from './actions';
-import PlayerStore from '../../../../store';
-import PlayerActions from '../../../../actions';
-import VisibilityStore from '../../../Visibility/store';
-import VisibilityActions from '../../../Visibility/actions';
-import traktUtil from '../../../../utils/trakt';
-import player from '../../../../utils/player';
+var alt = require('../../../../../../alt'
+var _ = require('lodash');
+var ls = require('local-storage');
+var {handleTime} = require('../../../../utils/time');
+var timeActions = require('./actions');
+var PlayerStore = require('../../../../store');
+var PlayerActions = require('../../../../actions');
+var VisibilityStore = require('../../../Visibility/store');
+var VisibilityActions = require('../../../Visibility/actions');
+var traktUtil = require('../../../../utils/trakt');
+var player = require('../../../../utils/player');
 
 var throttlers = {
     scrobbleKeys: false
@@ -52,5 +52,4 @@ class TimeStore {
 
 }
 
-export
-default alt.createStore(TimeStore);
+module.exports = alt.createStore(TimeStore);

@@ -1,5 +1,5 @@
-import alt from '../../../../alt'
-import VisibilityActions from './actions';
+var alt = require('../../../../alt');
+var VisibilityActions = require('./actions');
 
 class VisibilityStore {
 
@@ -38,5 +38,4 @@ class VisibilityStore {
 
 }
 
-export
-default alt.createStore(VisibilityStore);
+module.exports = alt.createStore(VisibilityStore);

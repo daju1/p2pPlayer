@@ -1,37 +1,37 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var {
     RouteContext, History
 }
-from 'react-router';
-import {
+= require('react-router');
+var {
     ipcRenderer
 }
-from 'electron';
-import {
+= require('electron');
+var {
     mouseTrap
 }
-from 'react-mousetrap';
-import {
+= require('react-mousetrap');
+var {
     app
-} from 'remote';
-import plugins from '../utils/plugins';
-import Modal from './Modal';
-import DarkModal from './Player/components/Modal';
-import Message from './Message';
-import Header from './Header';
-import historyActions from '../actions/historyActions';
-import traktUtil from './Player/utils/trakt';
-import filmonUtil from './Player/utils/filmon';
-import request from 'request';
-import subUtil from './Player/utils/subtitles';
-import updater from './Player/utils/updates';
-import remote from 'remote';
-import clArgs from '../utils/clArgs';
-import setDefaults from '../utils/defaults';
-import ls from 'local-storage';
-import Promise from 'bluebird';
-import _ from 'lodash';
+} = require('remote');
+var plugins = require('../utils/plugins');
+var Modal = require('./Modal');
+var DarkModal = require('./Player/components/Modal');
+var Message = require('./Message');
+var Header = require('./Header');
+var historyActions = require('../actions/historyActions');
+var traktUtil = require('./Player/utils/trakt');
+var filmonUtil = require('./Player/utils/filmon');
+var request = require('request');
+var subUtil = require('./Player/utils/subtitles');
+var updater = require('./Player/utils/updates');
+var remote = require('remote');
+var clArgs = require('../utils/clArgs');
+var setDefaults = require('../utils/defaults');
+var ls = require('local-storage');
+var Promise = require('bluebird');
+var _ = require('lodash');
 
 var attachArgs = true;
 
@@ -129,7 +129,7 @@ const Framework = React.createClass({
     },
 
     render() {
-        return (
+        return '';/*(
             <div id="main">
               <textarea className="dropDummy" style={{ display: 'none', position: 'absolute', top: '0', right: '0', left: '0', bottom: '0', width: '100%', zIndex: '1000', opacity: '0' }} />
               <Header/>
@@ -139,9 +139,8 @@ const Framework = React.createClass({
               <Message />
               <canvas id="fake-canvas" style={{display: 'none'}} />
             </div>
-        );
+        );*/
     }
 });
 
-export
-default mouseTrap(Framework)
+module.exports = mouseTrap(Framework)

@@ -1,6 +1,6 @@
-import alt from '../../../../../../alt'
-import ls from 'local-storage';
-import volumeActions from './actions';
+var alt = require('../../../../../../alt');
+var ls = require('local-storage');
+var volumeActions = require('./actions');
 
 class VolumeStore {
 
@@ -18,5 +18,4 @@ class VolumeStore {
 
 }
 
-export
-default alt.createStore(VolumeStore);
+module.exports = alt.createStore(VolumeStore);

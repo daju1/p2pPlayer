@@ -1,5 +1,5 @@
-import alt from '../../../../alt'
-import controlActions from './actions';
+var alt = require('../../../../alt');
+var controlActions = require('./actions');
 
 class ControlStore {
 
@@ -17,5 +17,4 @@ class ControlStore {
 
 }
 
-export
-default alt.createStore(ControlStore);
+module.exports = alt.createStore(ControlStore);

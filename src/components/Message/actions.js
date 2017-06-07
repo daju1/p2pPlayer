@@ -1,4 +1,3 @@
-import alt from '../../alt'
+var alt = require('../../alt');
 
-export
-default alt.generateActions('open', 'close');
+module.exports = alt.generateActions('open', 'close');

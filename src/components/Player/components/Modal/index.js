@@ -1,23 +1,22 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 
-import ModalStore from './store';
-import ModalActions from './actions';
+var ModalStore = require('./store');
+var ModalActions = require('./actions');
 
-import TraktCode from './components/TraktCode';
-import TraktInfo from './components/TraktInfo';
-import TraktSearch from './components/TraktSearch';
+var TraktCode = require('./components/TraktCode');
+var TraktInfo = require('./components/TraktInfo');
+var TraktSearch = require('./components/TraktSearch');
 
-import CastingScanner from './components/Casting-dummy';
-import CastingSettings from './components/Casting-dummy';
-import CastingControls from './components/Casting-dummy';
-import CastingLink from './components/Casting-dummy';
-import CastingProcess from './components/Casting-dummy';
-import CastingPlayer from './components/Casting-dummy';
-import CastingPlayerScanner from './components/Casting-dummy';
+var CastingScanner = require('./components/Casting-dummy');
+var CastingSettings = require('./components/Casting-dummy');
+var CastingControls = require('./components/Casting-dummy');
+var CastingLink = require('./components/Casting-dummy');
+var CastingProcess = require('./components/Casting-dummy');
+var CastingPlayer = require('./components/Casting-dummy');
+var CastingPlayerScanner = require('./components/Casting-dummy');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
     
@@ -95,10 +94,10 @@ default React.createClass({
     },
 
     render() {
-        return (
+        return '';/*(
             <div style={{width: '0px', height: '0px'}}>
                 {this.getContents()}
             </div>
-        );
+        );*/
     }
 });

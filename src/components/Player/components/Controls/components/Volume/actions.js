@@ -1,7 +1,7 @@
-import alt from '../../../../../../alt';
-import _ from 'lodash';
-import ls from 'local-storage';
-import player from '../../../../utils/player';
+var alt = require('../../../../../../alt');
+var _ = require('lodash');
+var ls = require('local-storage');
+var player = require('../../../../utils/player');
 
 var throttlers = {};
 
@@ -137,5 +137,4 @@ class VolumeActions {
 }
 
 
-export
-default alt.createActions(VolumeActions);
+module.exports = alt.createActions(VolumeActions);

@@ -1,7 +1,7 @@
-import alt from '../../../../../../alt'
-import SubtitleActions from '../../../SubtitleText/actions';
-import {handleTime} from '../../../../utils/time';
-import ls from 'local-storage';
+var alt = require('../../../../../../alt'
+var SubtitleActions = require('../../../SubtitleText/actions');
+var {handleTime} = require('../../../../utils/time');
+var ls = require('local-storage');
 
 class TimeActions {
 
@@ -28,5 +28,4 @@ class TimeActions {
 }
 
 
-export
-default alt.createActions(TimeActions);
+module.exports = alt.createActions(TimeActions);

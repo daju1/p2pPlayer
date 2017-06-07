@@ -1,11 +1,10 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 
-import TimeStore from './store';
-import TimeActions from './actions';
+var TimeStore = require('./store');
+var TimeActions = require('./actions');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -38,12 +37,12 @@ default React.createClass({
         }
     },
     render() {
-        return (
+        return '';/*(
             <div ref="scrobbler-shownTime" className="shownTime">
                 <span ref="scrobbler-currentTime" className="currentTime">{
                     this.state.forceTime ? this.state.overTime : this.state.currentTime
                 }</span> / <span ref="scrobbler-totalTime">{this.state.totalTime}</span>
             </div>
-        );
+        );*/
     }
 });

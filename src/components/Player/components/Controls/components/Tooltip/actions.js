@@ -1,4 +1,4 @@
-import alt from '../../../../../../alt'
+var alt = require('../../../../../../alt')
 
 class TooltipActions {
 
@@ -11,5 +11,4 @@ class TooltipActions {
 }
 
 
-export
-default alt.createActions(TooltipActions);
+module.exports = alt.createActions(TooltipActions);

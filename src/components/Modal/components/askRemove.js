@@ -1,23 +1,22 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     History
 }
-from 'react-router';
-import engineStore from '../../../stores/engineStore';
-import torrentActions from '../../../actions/torrentActions';
-import ModalStore from '../store';
-import {
+= require('react-router');
+var engineStore = require('../../../stores/engineStore');
+var torrentActions = require('../../../actions/torrentActions');
+var ModalStore = require('../store');
+var {
     ipcRenderer
 }
-from 'electron';
-import events from '../../Player/utils/events';
-import _ from 'lodash';
-import ls from 'local-storage';
+= require('electron');
+var events = require('../../Player/utils/events');
+var _ = require('lodash');
+var ls = require('local-storage');
 
-import ModalActions from '../actions';
+var ModalActions = require('../actions');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History],
 
@@ -80,7 +79,7 @@ default React.createClass({
             });
     },
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px', maxWidth: '90%', backgroundColor: '#303030', color: 'white', padding: '20px', textAlign: 'center'}}
@@ -111,6 +110,6 @@ default React.createClass({
                     </paper-button>
                 </div>
             </paper-dialog>
-        );
+        );*/
     }
 });

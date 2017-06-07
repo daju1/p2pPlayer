@@ -1,21 +1,20 @@
-import React from 'react';
-import _ from 'lodash';
-import {
+var React = require('react');
+var _ = require('lodash');
+var {
     History
 }
-from 'react-router';
+= require('react-router');
 
-import ModalActions from '../actions';
-import ModalStore from '../store';
-import EngineStore from '../../../stores/engineStore';
-import TorrentActions from '../../../actions/torrentActions'
-import PlayerActions from '../../Player/actions';
-import player from '../../Player/utils/player';
-import parser from '../../Player/utils/parser';
-import metaParser from '../../Player/utils/metaParser';
+var ModalActions = require('../actions');
+var ModalStore = require('../store');
+var EngineStore = require('../../../stores/engineStore');
+var TorrentActions = require('../../../actions/torrentActions');
+var PlayerActions = require('../../Player/actions');
+var player = require('../../Player/utils/player');
+var parser = require('../../Player/utils/parser');
+var metaParser = require('../../Player/utils/metaParser');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History],
 
@@ -61,7 +60,7 @@ default React.createClass({
         return content;
     },
 
-    generateFolder(files, name) {
+    /*generateFolder(files, name) {
         var content = [];
 
         _.forEach(files, (file) => {
@@ -76,7 +75,7 @@ default React.createClass({
             </paper-menu>
           </paper-submenu>
         );
-    },
+    },*/
 
     handleSelectFile(file) {
         this.setState({
@@ -170,7 +169,7 @@ default React.createClass({
         this.history.replaceState(null, 'player');
     },
 
-    generateFile(file) {
+    /*generateFile(file) {
         return (
             <paper-item key={file.id} disabled={!file.streamable} onClick={this.handleSelectFile.bind(this, file)} onDoubleClick={this.handleStreamFile.bind(this, file)} style={{cursor: 'pointer', padding: '5px 15px'}} toggles={true}>
             <paper-item-body two-line>
@@ -179,7 +178,7 @@ default React.createClass({
             </paper-item-body>
             </paper-item>
         );
-    },
+    },*/
     formatBytes(bytes, decimals) {
         if (bytes == 0) return '0 Byte';
         var k = 1000;
@@ -192,7 +191,7 @@ default React.createClass({
         let playDisabled = this.state.selectedFile ? false : true;
         let folders_enabled = this.state.files.folders;
         let content = this.state.files ? this.getContent() : [];
-        return (
+        return "";/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px', overflowX: 'auto'}}
@@ -232,6 +231,6 @@ default React.createClass({
                 </paper-button>
 
             </paper-dialog>
-        );
+        );*/
     }
 });

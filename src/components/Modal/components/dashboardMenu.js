@@ -1,26 +1,25 @@
-import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {
+var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var {
     History
 }
-from 'react-router';
-import {
+= require('react-router');
+var {
     clipboard, shell
-} from 'electron';
-import _ from 'lodash';
+} = require('electron');
+var _ = require('lodash');
 
-import ModalActions from '../actions';
+var ModalActions = require('../actions');
 
-import remote from 'remote';
+var remote = require('remote');
 
-import engineStore from '../../../stores/engineStore';
-import torrentActions from '../../../actions/torrentActions';
-import events from '../../Player/utils/events';
-import player from '../../Player/utils/player';
-import ls from 'local-storage';
+var engineStore = require('../../../stores/engineStore');
+var torrentActions = require('../../../actions/torrentActions');
+var events = require('../../Player/utils/events');
+var player = require('../../Player/utils/player');
+var ls = require('local-storage');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History, PureRenderMixin],
 
@@ -111,7 +110,7 @@ default React.createClass({
         }
     },
     render() {
-        return (
+        return '';/*(
             <paper-dialog
                 ref="dialog"
                 style={{width: '440px', textAlign: 'left', borderRadius: '3px', maxWidth: '90%', backgroundColor: '#303030', padding: '0px', width: '200px', overflowX: 'auto'}}
@@ -178,6 +177,6 @@ default React.createClass({
                 </div>
 
             </paper-dialog>
-        );
+        );*/
     }
 });
