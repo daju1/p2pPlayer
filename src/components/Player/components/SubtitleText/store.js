@@ -1,11 +1,13 @@
 var alt = require('../../../../alt');
+var helper = require('../../../../helper');
 var subUtil = require('../../utils/subtitles');
 var SubtitleActions = require('./actions');
 var PlayerStore = require('../../store');
 
-class SubtitleStore {
+var SubtitleStore = function() {
 
-    constructor() {
+    function SubtitleStore() {
+        helper.classCallCheck(this, SubtitleStore);
         this.bindActions(SubtitleActions);
 
         this.subtitle = [];
@@ -17,9 +19,14 @@ class SubtitleStore {
 
     }
 
+    helper.createClass(SubtitleStore, [{
+    key: 'onSettingChange',
+    value: function 
     onSettingChange(setting) {
         this.setState(setting);
     }
+    }]);
+    return SubtitleStore;
 
 }
 

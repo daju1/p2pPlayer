@@ -1,4 +1,5 @@
 var alt = require('../../../../../../alt');
+var helper = require('../../../../../../helper');
 var _ = require('lodash');
 var TooltipActions = require('../Tooltip/actions');
 var VisibilityActions = require('../../../Visibility/actions');
@@ -8,9 +9,10 @@ var player = require('../../../../utils/player');
 
 var throttlers = {};
 
-class ProgressActions {
+var ProgressActions = function() {
 
-    constructor() {
+    function ProgressActions() {
+        helper.classCallCheck(this, ProgressActions);
         this.generateActions(
             'settingChange',
             'changeTime',
@@ -22,12 +24,19 @@ class ProgressActions {
         );
     }
 
+    helper.createClass(ProgressActions, [{
+
+    key: 'handleScrobblerThrottle',
+    value: function 
     handleScrobblerThrottle(pageX) {
         if (!throttlers.scrobble)
             throttlers.scrobble = _.throttle(this.actions.handleScrobblerHover, 50);
         throttlers.scrobble(pageX);
     }
 
+    }, {
+    key: 'handleScrobblerHover',
+    value: function 
     handleScrobblerHover(pageX) {
 
         if (!pageX) return;
@@ -80,6 +89,9 @@ class ProgressActions {
 
     }
     
+    }, {
+    key: 'handleScrobble',
+    value: function 
     handleScrobble(event) {
         
         if (player.wcjs.state != 3) {
@@ -121,6 +133,9 @@ class ProgressActions {
 
     }
 
+    }, {
+    key: 'handleDragStart',
+    value: function 
     handleDragStart(event) {
         
         if (player.wcjs.length) {
@@ -143,6 +158,9 @@ class ProgressActions {
         }
     }
 
+    }, {
+    key: 'handleDragEnter',
+    value: function 
     handleDragEnter(event) {
         if (player.wcjs.length) {
             this.actions.settingChange({
@@ -154,6 +172,9 @@ class ProgressActions {
         }
     }
 
+    }, {
+    key: 'handleDragEnd',
+    value: function 
     handleDragEnd() {
         var progressState = this.alt.stores.ProgressStore.state,
             newTooltipState = {};
@@ -168,12 +189,18 @@ class ProgressActions {
         TooltipActions.settingChange(newTooltipState);
     }
 
+    }, {
+    key: 'handleGlobalMouseMove',
+    value: function 
     handleGlobalMouseMove(pageX) {
         var progressState = this.alt.stores.ProgressStore.state;
         if (progressState.scrobbling)
             this.actions.handleScrobblerThrottle(pageX);
     }
 
+    }, {
+    key: 'handleGlobalMouseUp',
+    value: function 
     handleGlobalMouseUp(event) {
         var progressState = this.alt.stores.ProgressStore.state;
         if (progressState.scrobbling) {
@@ -193,11 +220,16 @@ class ProgressActions {
         }
     }
 
+    }, {
+    key: 'delayTime',
+    value: function 
     delayTime(t) {
         if (!throttlers.timeChange)
             throttlers.timeChange = _.throttle(this.actions.changeTime, 100);
         throttlers.timeChange(t);
     }
+    }]);
+    return ProgressActions;
 
 }
 

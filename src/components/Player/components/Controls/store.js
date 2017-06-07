@@ -1,9 +1,12 @@
 var alt = require('../../../../alt');
+var helper = require('../../../../helper');
+
 var controlActions = require('./actions');
 
-class ControlStore {
+var ControlStore = function() {
 
-    constructor() {
+    function ControlStore() {
+        helper.classCallCheck(this, ControlStore);
         this.bindActions(controlActions);
 
         this.foundSubs = false;
@@ -11,9 +14,14 @@ class ControlStore {
 
     }
 
+    helper.createClass(ControlStore, [{
+    key: 'onSettingChange',
+    value: function 
     onSettingChange(setting) {
         this.setState(setting);
     }
+    }]);
+    return ControlStore;
 
 }
 

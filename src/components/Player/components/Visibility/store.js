@@ -1,9 +1,11 @@
 var alt = require('../../../../alt');
+var helper = require('../../../../helper');
 var VisibilityActions = require('./actions');
 
-class VisibilityStore {
+var VisibilityStore = function() {
 
-    constructor() {
+    function VisibilityStore() {
+        helper.classCallCheck(this, VisibilityStore);
         this.bindActions(VisibilityActions);
 
         this.playlist = false;
@@ -15,10 +17,16 @@ class VisibilityStore {
 
     }
 
+    helper.createClass(VisibilityStore, [{
+    key: 'onSettingChange',
+    value: function 
     onSettingChange(setting) {
         this.setState(setting);
     }
 
+    }, {
+    key: 'onToggleMenu',
+    value: function 
     onToggleMenu(menu) {
         var obj = {
             playlist: false,
@@ -30,11 +38,16 @@ class VisibilityStore {
         this.setState(obj);
     }
 
+    }, {
+    key: 'onUiShown',
+    value: function 
     onUiShown(toggle) {
         this.setState({
             uiShown: toggle
         });
     }
+    }]);
+    return VisibilityStore;
 
 }
 

@@ -1,10 +1,12 @@
 var alt = require('../../../../../../alt');
+var helper = require('../../../../../../helper');
 var ls = require('local-storage');
 var volumeActions = require('./actions');
 
-class VolumeStore {
+var VolumeStore = function() {
 
-    constructor() {
+    function VolumeStore() {
+        helper.classCallCheck(this, VolumeStore);
         this.bindActions(volumeActions);
 
         this.volume = ls.isSet('volume') ? ls('volume') : 100;
@@ -12,9 +14,14 @@ class VolumeStore {
 
     }
 
+    helper.createClass(VolumeStore, [{
+    key: 'onSettingChange',
+    value: function 
     onSettingChange(setting) {
         this.setState(setting);
     }
+    }]);
+    return VolumeStore;
 
 }
 

@@ -1,4 +1,5 @@
 var alt = require('../../../../alt');
+var helper = require('../../../../helper');
 var _ = require('lodash');
 var ls = require('local-storage');
 var {
@@ -7,14 +8,18 @@ var {
 = require('electron');
 var player = require('../../utils/player');
 
-class ControlActions {
+var ControlActions = function() {
 
-    constructor() {
+    function ControlActions() {
+        helper.classCallCheck(this, ControlActions);
         this.generateActions(
             'settingChange'
         );
     }
 
+    helper.createClass(ControlActions, [{
+    key: 'handlePausePlay',
+    value: function 
     handlePausePlay() {
         if (player.wcjs.state == 6) {
             // if playback ended, restart last item
@@ -24,6 +29,9 @@ class ControlActions {
         }
     }
 
+    }, {
+    key: 'toggleFullscreen',
+    value: function 
     toggleFullscreen(state) {
         if (typeof state !== 'boolean') state = !this.alt.stores.ControlStore.state.fullscreen;
 
@@ -41,6 +49,8 @@ class ControlActions {
             fullscreen: state
         });
     }
+    }]);
+    return ControlActions;
 
 }
 

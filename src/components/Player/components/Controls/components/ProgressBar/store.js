@@ -1,4 +1,5 @@
-var alt = require('../../../../../../alt'
+var alt = require('../../../../../../alt');
+var helper = require('../../../../../../helper');
 var progressActions = require('./actions');
 var _ = require('lodash');
 var player = require('../../../../utils/player');
@@ -13,9 +14,10 @@ var throttlers = {
     scrobbleKeys: false
 };
 
-class ProgressStore {
+var ProgressStore = function(){
 
-    constructor() {
+    function ProgressStore() {
+        helper.classCallCheck(this, ProgressStore);
         this.bindActions(progressActions);
 
         this.keepScrobble = false;
@@ -27,7 +29,10 @@ class ProgressStore {
         this.cache = 0;
 
     }
+    helper.createClass(ProgressStore, [{
 
+    key: 'onSettingChange',
+    value: function 
     onSettingChange(setting) {
         if (setting.position == 0) {
             // remove transition for progress bar periodically
@@ -41,20 +46,28 @@ class ProgressStore {
         }
         this.setState(setting);
     }
-    
+
+    }, {
+    key: 'onSetCache',
+    value: function 
     onSetCache(float) {
         this.setState({
             cache: float
         });
     }
 
-
+    }, {
+    key: 'onSeekable',
+    value: function 
     onSeekable(state) {
         this.setState({
             seekable: state
         });
     }
 
+    }, {
+    key: 'onScrobble',
+    value: function 
     onScrobble(time) {
 
         if (time < 0) time = 0;
@@ -82,6 +95,9 @@ class ProgressStore {
 
     }
 
+    }, {
+    key: 'onChangeTime',
+    value: function 
     onChangeTime(q) {
 
         var t = q.jump,
@@ -149,6 +165,9 @@ class ProgressStore {
 
     }
 
+    }, {
+    key: 'onPosition',
+    value: function 
     onPosition(pos) {
         if (player.wcjs.state == 5) pos = 0;
         if (this.position != pos)
@@ -157,6 +176,9 @@ class ProgressStore {
             });
     }
 
+    }, {
+    key: 'onDelayScrobbleGUI',
+    value: function 
     onDelayScrobbleGUI() {
         _.delay(() => {
             this.setState({
@@ -164,7 +186,9 @@ class ProgressStore {
             })
         }, 1000);
     }
+    }]);
+    return ProgressStore;
 
-}
+}();
 
 module.exports = alt.createStore(ProgressStore);

@@ -1,12 +1,16 @@
-var alt = require('../../../../../../alt')
+var alt = require('../../../../../../alt');
+var helper = require('../../../../../../helper');
 
-class TooltipActions {
+var TooltipActions = function() {
 
-    constructor() {
+    function TooltipActions() {
+        helper.classCallCheck(this, TooltipActions);
         this.generateActions(
             'settingChange'
         );
     }
+
+    return TooltipActions;
 
 }
 

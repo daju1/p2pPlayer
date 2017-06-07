@@ -1,4 +1,5 @@
-var alt = require('../../../../alt'
+var alt = require('../../../../alt');
+var helper = require('../../../../helper');
 var PlayerStore = require('../../store');
 var PlayerActions = require('../../actions');
 var ControlActions = require('../Controls/actions');
@@ -7,15 +8,19 @@ var ls = require('local-storage');
 var _ = require('lodash');
 var player = require('../../utils/player');
 
-class SubtitleActions {
+var SubtitleActions = function() {
 
-    constructor() {
+    function SubtitleActions() {
+        helper.classCallCheck(this, SubtitleActions);
         this.generateActions(
             'settingChange'
         );
     }
 
 
+    helper.createClass(SubtitleActions, [{
+    key: 'time',
+    value: function 
     time(time) {
         // print subtitle text if a subtitle is selected
         var subtitleState = this.alt.stores.SubtitleStore.state;
@@ -27,6 +32,9 @@ class SubtitleActions {
 
     }
 
+    }, {
+    key: 'findSubs',
+    value: function 
     findSubs(itemDesc, cb, idx) {
 
         var subQuery = {
@@ -56,6 +64,9 @@ class SubtitleActions {
 
     }
     
+    }, {
+    key: 'foundSubs',
+    value: function 
     foundSubs(subs, announce, idx, cb) {
 
         if (!idx) idx = player.wcjs.playlist.currentItem;
@@ -76,6 +87,9 @@ class SubtitleActions {
         cb && cb(true);
     }
 
+    }, {
+    key: 'loadSub',
+    value: function 
     loadSub(subLink) {
         subUtil.loadSubtitle(subLink, parsedSub => {
             if (!parsedSub) {
@@ -92,6 +106,8 @@ class SubtitleActions {
             }
         });
     }
+    }]);
+    return SubtitleActions;
 
 }
 

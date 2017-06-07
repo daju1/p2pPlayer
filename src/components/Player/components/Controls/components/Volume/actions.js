@@ -1,18 +1,23 @@
 var alt = require('../../../../../../alt');
+var helper = require('../../../../../../helper');
 var _ = require('lodash');
 var ls = require('local-storage');
 var player = require('../../../../utils/player');
 
 var throttlers = {};
 
-class VolumeActions {
+var VolumeActions = function() {
 
-    constructor() {
+    function VolumeActions() {
+        helper.classCallCheck(this, VolumeActions);
         this.generateActions(
             'settingChange'
         );
     }
     
+    helper.createClass(VolumeActions, [{
+    key: 'handleVolume',
+    value: function 
     handleVolume() {
         var t = document.querySelector('.vol-slide').immediateValue;
         if (!throttlers.volume)
@@ -20,6 +25,9 @@ class VolumeActions {
         throttlers.volume(t);
     }
 
+    }, {
+    key: 'setVolume',
+    value: function 
     setVolume(t) {
 
         if (t > 200) // don't allow volume higher than 200%
@@ -49,11 +57,17 @@ class VolumeActions {
             ls('volume', t);
     }
 
+    }, {
+    key: 'handleMute',
+    value: function 
     handleMute(event) {
         var volumeState = this.alt.stores.VolumeStore.state;
         this.actions.mute(!volumeState.muted);
     }
 
+    }, {
+    key: 'mute',
+    value: function 
     mute(mute) {
         var wcjs = player.wcjs;
 
@@ -65,6 +79,9 @@ class VolumeActions {
         });
     }
 
+    }, {
+    key: 'volumeIndexEffect',
+    value: function 
     volumeIndexEffect(f, b, i) {
         if (i) {
             var volumeState = this.alt.stores.VolumeStore.state;
@@ -86,6 +103,9 @@ class VolumeActions {
         }
     }
 
+    }, {
+    key: 'volumeRippleEffect',
+    value: function 
     volumeRippleEffect(c, i, a) {
 //        if (a) {
 //            var volumeState = this.alt.stores.VolumeStore.state;
@@ -105,12 +125,18 @@ class VolumeActions {
 //        }
     }
 
+    }, {
+    key: 'volumeDragStart',
+    value: function 
     volumeDragStart() {
         this.actions.settingChange({
             volumeDragging: true
         });
     }
 
+    }, {
+    key: 'volumeDragStop',
+    value: function 
     volumeDragStop() {
         document.querySelector('.vol-slide').blur();
         var obj = {
@@ -133,6 +159,8 @@ class VolumeActions {
         ls('volume', volumeState.volume);
 
     }
+    }]);
+    return VolumeActions;
 
 }
 

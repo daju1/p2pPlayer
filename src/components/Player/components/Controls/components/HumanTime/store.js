@@ -1,4 +1,5 @@
-var alt = require('../../../../../../alt'
+var alt = require('../../../../../../alt');
+var helper = require('../../../../../../helper');
 var _ = require('lodash');
 var ls = require('local-storage');
 var {handleTime} = require('../../../../utils/time');
@@ -14,9 +15,10 @@ var throttlers = {
     scrobbleKeys: false
 };
 
-class TimeStore {
+var TimeStore = function() {
 
-    constructor() {
+    function TimeStore() {
+        helper.classCallCheck(this, TimeStore);
         this.bindActions(timeActions);
 
         this.currentTime = '00:00';
@@ -26,17 +28,26 @@ class TimeStore {
         this.overTime = false;
 
     }
+    helper.createClass(TimeStore, [{
 
+    key: 'onSettingChange',
+    value: function 
     onSettingChange(setting) {
         this.setState(setting);
     }
 
+    }, {
+    key: 'onTime',
+    value: function 
     onTime(time) {
         this.setState({
             currentTime: handleTime(time, this.length)
         });
     }
 
+    }, {
+    key: 'onLength',
+    value: function 
     onLength(length) {
 
         if (ls('speedPulsing') && ls('speedPulsing') == 'enabled')
@@ -49,7 +60,9 @@ class TimeStore {
             });
         });
     }
+    }]);
+    return TimeStore;
 
-}
+}();
 
 module.exports = alt.createStore(TimeStore);

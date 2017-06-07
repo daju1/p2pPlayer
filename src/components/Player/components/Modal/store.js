@@ -1,9 +1,11 @@
 var alt = require('../../../../alt');
+var helper = require('../../../../helper');
 var modalActions = require('./actions');
 
 
-class darkModalStore {
-    constructor() {
+var darkModalStore = function() {
+    function darkModalStore() {
+        helper.classCallCheck(this, darkModalStore);
         this.bindActions(modalActions);
 
         this.open = false;
@@ -13,6 +15,9 @@ class darkModalStore {
 
     }
 
+    helper.createClass(darkModalStore, [{
+    key: 'onOpen',
+    value: function 
     onOpen(data) {
         this.setState({
             open: true,
@@ -21,12 +26,18 @@ class darkModalStore {
         });
     }
 
+    }, {
+    key: 'onMetaUpdate',
+    value: function 
     onMetaUpdate(meta) {
         this.setState({
             meta: meta
         });
     }
 
+    }, {
+    key: 'onClose',
+    value: function 
     onClose() {
         this.setState({
             open: false,
@@ -34,6 +45,8 @@ class darkModalStore {
             type: false
         });
     }
+    }]);
+    return darkModalStore;
 }
 
 module.exports = alt.createStore(darkModalStore);
