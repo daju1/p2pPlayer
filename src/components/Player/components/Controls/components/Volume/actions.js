@@ -162,7 +162,7 @@ var VolumeActions = function() {
     }]);
     return VolumeActions;
 
-}
+}();
 
 
 module.exports = alt.createActions(VolumeActions);

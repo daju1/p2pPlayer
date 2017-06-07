@@ -1,15 +1,15 @@
-﻿import React from 'react';
-import _ from 'lodash';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ls from 'local-storage';
+﻿var React = require('react');
+var _ = require('lodash');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var ls = require('local-storage');
 
-import PlayerActions from '../actions';
-import SubtitleStore from './SubtitleText/store';
-import SubtitleActions from './SubtitleText/actions';
-import VisibilityStore from './Visibility/store';
-import VisibilityActions from './Visibility/actions';
-import player from '../utils/player';
-import path from 'path';
+var PlayerActions = require('../actions');
+var SubtitleStore = require('./SubtitleText/store');
+var SubtitleActions = require('./SubtitleText/actions');
+var VisibilityStore = require('./Visibility/store');
+var VisibilityActions = require('./Visibility/actions');
+var player = require('../utils/player');
+var path = require('path');
 
 const lang2country = {
     en: 'us',
@@ -22,8 +22,7 @@ const lang2country = {
     vi: 'vn'
 }
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -108,7 +107,7 @@ default React.createClass({
         } else return [];
     },
 
-    render() {
+    render() { return ''; /*
         var itemId = 1;
         if (!ls.isSet('menuFlags') || ls('menuFlags')) {
             var none = (
@@ -128,7 +127,7 @@ default React.createClass({
                 </paper-item>
             );
         }
-        return (
+        return ( 
             <div className={this.state.open ? 'subtitle-list show' : 'subtitle-list'}>
             <div style={{backgroundColor: '#303030', padding: '0'}}>
                 {none}
@@ -182,7 +181,7 @@ default React.createClass({
                     }
             </div>
             </div>
-        );
+        );*/
     }
 
     

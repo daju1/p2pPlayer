@@ -1,24 +1,24 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import path from 'path';
-import wcjsRenderer from '../utils/wcjs-renderer';
-import player from '../utils/player';
-import events from '../utils/events';
-import _ from 'lodash';
-import ls from 'local-storage';
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var path = require('path');
+var wcjsRenderer = require('../utils/wcjs-renderer');
+var player = require('../utils/player');
+var events = require('../utils/events');
+var _ = require('lodash');
+var ls = require('local-storage');
 
-import {
+var {
     app
-} from 'remote';
+} = require('remote');
 
-import PlayerActions from '../actions';
-import PlayerStore from '../store';
-import VisibilityStore from './Visibility/store';
-import ControlActions from './Controls/actions';
-import ProgressActions from './Controls/components/ProgressBar/actions';
-import VolumeActions from './Controls/components/Volume/actions';
-import TimeActions from './Controls/components/HumanTime/actions';
-import SubtitleActions from './SubtitleText/actions';
+var PlayerActions = require('../actions');
+var PlayerStore = require('../store');
+var VisibilityStore = require('./Visibility/store');
+var ControlActions = require('./Controls/actions');
+var ProgressActions = require('./Controls/components/ProgressBar/actions');
+var VolumeActions = require('./Controls/components/Volume/actions');
+var TimeActions = require('./Controls/components/HumanTime/actions');
+var SubtitleActions = require('./SubtitleText/actions');
 
 try {
     var wcjs_path = (process.env.NODE_ENV === 'development') ? path.join(__dirname, '../../../../bin/', 'WebChimera.js.node') : path.join(app.getAppPath(), '../bin/', 'WebChimera.js.node');
@@ -41,8 +41,7 @@ function gcd(a, b) {
     return a;
 }
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -377,7 +376,7 @@ default React.createClass({
                 transform: 'translate(-50%,-50%)'
             }
         };
-        return (
+        return '';/*(
             <div className='render-holder' onWheel={this.wheel}>
                 <div id="canvasEffect" style={{ position: 'absolute', width: '100%', height: '100%' }} />
                 <div className="controls-background" onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} style={{zIndex: '1'}}>
@@ -387,6 +386,6 @@ default React.createClass({
                     <canvas id={'playerCanvas'} style={renderStyles.canvas} onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} ref="wcjs-render" />
                 </div>
             </div>
-        );
+        );*/
     }
 });

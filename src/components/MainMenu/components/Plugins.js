@@ -233,7 +233,7 @@ module.exports = React.createClass({
             ModalActions.plugin(targetPlugin);
     },
 
-    render() {
+    render() { return '';/*
         if (!this.state.selected && !this.state.search) {
             var title = 'Select Interest';
             var feed = [
@@ -533,7 +533,7 @@ module.exports = React.createClass({
                     {generated}
                 </div>
             </div>
-        );
+        );*/
     }
 });
 

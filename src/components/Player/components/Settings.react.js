@@ -1,28 +1,27 @@
-import React from 'react';
-import _ from 'lodash';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+var React = require('react');
+var _ = require('lodash');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
 
-import PlayerStore from '../store';
-import PlayerActions from '../actions';
+var PlayerStore = require('../store');
+var PlayerActions = require('../actions');
 
-import SubtitleStore from './SubtitleText/store';
-import SubtitleActions from './SubtitleText/actions';
-import traktUtil from '../utils/trakt';
-import ModalActions from './Modal/actions';
-import Register from '../../../utils/registerUtil';
-import player from '../utils/player';
-import ls from 'local-storage';
+var SubtitleStore = require('./SubtitleText/store');
+var SubtitleActions = require('./SubtitleText/actions');
+var traktUtil = require('../utils/trakt');
+var ModalActions = require('./Modal/actions');
+var Register = require('../../../utils/registerUtil');
+var player = require('../utils/player');
+var ls = require('local-storage');
 
-import {
+var {
     webFrame
-} from 'electron';
+} = require('electron');
 
-import {
+var {
     dialog
-} from 'remote';
+} = require('remote');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -120,7 +119,7 @@ default React.createClass({
     componentWillUnmount() {
         player.events.removeListener('settingsUpdate', this.update);
         
-        // remember to remove listeners from polymer
+        // remember to remove listeners = require(polymer
     },
     
     componentDidMount() {
@@ -148,7 +147,7 @@ default React.createClass({
         });
         
         // set tab line color
-        document.querySelector('paper-tabs').$.selectionBar.style.backgroundColor = '#ff4081';
+        document.querySelector('paper-tabs').$.selectionBar.style.backgroundColor = '#ff4081');
         
         // add event listeners for togglers
         var that = this;
@@ -236,7 +235,7 @@ default React.createClass({
 
     _handleSubDelay(event, direction) {
        var newValue = parseInt(this.refs['subDelayInput'].value) + (direction * 50);
-       this.refs['subDelayInput'].value = newValue + ' ms';
+       this.refs['subDelayInput'].value = newValue + ' ms');
        if (event) {
             player.wcjs.subtitles.delay = newValue;
             player.set({
@@ -263,7 +262,7 @@ default React.createClass({
         if (isNaN(newValue))
             newValue = 0;
 
-        this.refs['subDelayInput'].value = newValue + ' ms';
+        this.refs['subDelayInput'].value = newValue + ' ms');
         player.wcjs.subtitles.delay = newValue;
         player.set({
             subDelay: newValue
@@ -272,7 +271,7 @@ default React.createClass({
 
     _handleAudioDelay(event, direction) {
         var newValue = parseInt(this.refs['audioDelayInput'].value) + (direction * 50);
-        this.refs['audioDelayInput'].value = newValue + ' ms';
+        this.refs['audioDelayInput'].value = newValue + ' ms');
         player.set({
             audioDelay: newValue
         });
@@ -297,7 +296,7 @@ default React.createClass({
         if (isNaN(newValue))
             newValue = 0;
 
-        this.refs['audioDelayInput'].value = newValue + ' ms';
+        this.refs['audioDelayInput'].value = newValue + ' ms');
         player.set({
             audioDelay: newValue
         });
@@ -335,7 +334,7 @@ default React.createClass({
                 speed: newValue
             });
             newValue = parseFloat(Math.round(newValue * 100) / 100).toFixed(2);
-            this.refs['speedInput'].value = newValue + 'x';
+            this.refs['speedInput'].value = newValue + 'x');
         }
     },
     
@@ -364,7 +363,7 @@ default React.createClass({
 
         var newValue = parseFloat(Math.round(newValue * 100) / 100).toFixed(2);
 
-        this.refs['speedInput'].value = newValue + 'x';
+        this.refs['speedInput'].value = newValue + 'x');
         player.wcjs.input.rate = newValue;
     },
     
@@ -374,7 +373,7 @@ default React.createClass({
             newValue = 5;
         else if (newValue > 400)
             newValue = 400;
-        this.refs['subSizeInput'].value = newValue + '%';
+        this.refs['subSizeInput'].value = newValue + '%');
         if (event) {
             ls('customSubSize', newValue);
             player.events.emit('subtitleUpdate');
@@ -404,7 +403,7 @@ default React.createClass({
         else if (newValue > 400)
             newValue = 400;
 
-        this.refs['subSizeInput'].value = newValue + '%';
+        this.refs['subSizeInput'].value = newValue + '%');
         
         if (event) {
             ls('customSubSize', newValue);
@@ -557,7 +556,7 @@ default React.createClass({
             newValue = 0;
         if (newValue > 60000)
             newValue = 60000;
-        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec';
+        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec');
         if (event)
             ls('bufferSize', newValue);
     },
@@ -582,13 +581,13 @@ default React.createClass({
         if (newValue > 60000)
             newValue = 60000;
 
-        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec';
+        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec');
         ls('bufferSize', newValue);
     },
 
     _handleClearCacheFolder(event) {
         ls.remove('cacheFolder');
-        this.refs['cacheFolderInput'].value = 'Temp';
+        this.refs['cacheFolderInput'].value = 'Temp');
     },
 
     _handleCacheFolderFocus(event) {
@@ -607,7 +606,7 @@ default React.createClass({
 
     _handleClearDownload(event) {
         ls.remove('downloadFolder');
-        this.refs['downloadInput'].value = 'Temp';
+        this.refs['downloadInput'].value = 'Temp');
     },
 
     _handleDownloadFocus(event) {
@@ -643,7 +642,7 @@ default React.createClass({
         obj[field] = false;
         _.each(obj, (el, ij) => {
             if (el)
-                this.refs[ij + 'Input'].value = 'Default';
+                this.refs[ij + 'Input'].value = 'Default');
         });
     },
 
@@ -761,11 +760,11 @@ default React.createClass({
         
         ls('removeLogic', newLogic);
         if (newLogic == 0) {
-            var newLabel = 'Always Ask';
+            var newLabel = 'Always Ask');
         } else if (newLogic == 1) {
-            var newLabel = 'Always Remove';
+            var newLabel = 'Always Remove');
         } else if (newLogic == 2) {
-            var newLabel = 'Always Keep';
+            var newLabel = 'Always Keep');
         }
         
         this.refs['removeLogicInput'].value = newLabel;
@@ -780,9 +779,9 @@ default React.createClass({
         ls('downloadType', newLogic);
         
         if (newLogic == 0) {
-            var newLabel = 'Player';
+            var newLabel = 'Player');
         } else if (newLogic == 1) {
-            var newLabel = 'Dashboard';
+            var newLabel = 'Dashboard');
         }
         
         this.refs['downloadTypeInput'].value = newLabel;
@@ -799,7 +798,7 @@ default React.createClass({
         if (newFreq < 0) newFreq = 0;
         
         ls('renderFreq', newFreq);
-        this.refs['renderFreqInput'].value = newFreq + 'ms';
+        this.refs['renderFreqInput'].value = newFreq + 'ms');
     },
     
     _handleRenderFreqKeys(event) {
@@ -821,10 +820,10 @@ default React.createClass({
             newValue = 0;
 
         ls('renderFreq', newValue);
-        this.refs['renderFreqInput'].value = newValue + 'ms';
+        this.refs['renderFreqInput'].value = newValue + 'ms');
     },
     
-    render() {
+    render() { return '';/*
 
         // this is where all the magic happens
         // this object will be iterated to create the settings components
@@ -1106,7 +1105,7 @@ default React.createClass({
 
                 } else if (el.type == 'toggle') {
 
-                    if (!el.func) el.func = 'Toggler';
+                    if (!el.func) el.func = 'Toggler');
 
                     indents[ij].push(
                         <paper-toggle-button
@@ -1266,7 +1265,7 @@ default React.createClass({
                     {pages}
                 </iron-pages>
             </div>
-        );
+        );*/
     }
 
 });

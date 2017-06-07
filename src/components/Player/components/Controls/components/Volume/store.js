@@ -23,6 +23,6 @@ var VolumeStore = function() {
     }]);
     return VolumeStore;
 
-}
+}();
 
 module.exports = alt.createStore(VolumeStore);

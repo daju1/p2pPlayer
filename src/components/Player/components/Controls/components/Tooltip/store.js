@@ -21,6 +21,6 @@ var TooltipStore = function(){
     }]);
     return TooltipStore;
 
-}
+}();
 
 module.exports = alt.createStore(TooltipStore);

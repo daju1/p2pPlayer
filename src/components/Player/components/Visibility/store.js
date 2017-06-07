@@ -49,6 +49,6 @@ var VisibilityStore = function() {
     }]);
     return VisibilityStore;
 
-}
+}();
 
 module.exports = alt.createStore(VisibilityStore);

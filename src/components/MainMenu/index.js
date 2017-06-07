@@ -291,10 +291,10 @@ module.exports = React.createClass({
         ipcRenderer.send('app:alwaysOnTop', newValue);
         this.setState({});
     },
-    render() {
+    render() { return ''; /*
         var extensionView = this.state.extensionView ? (<Plugins />) : '';
         var settingsView = this.state.settingsView ? (<Settings />) : '';
-        return '';/*(
+        return (
             <div className="wrapper">
                {extensionView}
                {settingsView}

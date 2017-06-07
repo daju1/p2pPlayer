@@ -1,17 +1,16 @@
-﻿import React from 'react';
-import _ from 'lodash';
-import PlayerStore from '../store';
-import PlayerActions from '../actions';
-import ControlActions from './Controls/actions';
-import VisibilityStore from './Visibility/store';
-import path from 'path';
-import player from '../utils/player';
-import Sortable from 'sortablejs';
+﻿var React = require('react');
+var _ = require('lodash');
+var PlayerStore = require('../store');
+var PlayerActions = require('../actions');
+var ControlActions = require('./Controls/actions');
+var VisibilityStore = require('./Visibility/store');
+var path = require('path');
+var player = require('../utils/player');
+var Sortable = require('sortablejs');
 
 var sortable = {};
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         return {
@@ -62,7 +61,7 @@ default React.createClass({
         if (!player.wcjs.playlist) return items;
         for (var idx = 0; idx < player.wcjs.playlist.items.count; idx++) {
             var item = player.itemDesc(idx);
-            var noImage = 'images/video-placeholder.svg';
+            var noImage = 'images/video-placeholder.svg');
 
             !item.setting && (item.setting = {})
 
@@ -110,7 +109,7 @@ default React.createClass({
                     window.immuneToDrop = true;
                     // set a class to the playlist while dragging
                     var playlistElem = window.document.querySelector('.playlist-inner');
-                    playlistElem.className += ' playlist-dragging';
+                    playlistElem.className += ' playlist-dragging');
                 },
                 
                 onEnd: evt => {
@@ -147,7 +146,7 @@ default React.createClass({
     },
 
     render() {
-        return (
+        return '';/*(
             <div className={this.state.uiHidden ? 'playlist-container' : this.state.open ? 'playlist-container show' : 'playlist-container'}>
                 <div className="playlist-controls" / >
                 <div className="playlist-holder playlist-holder-contain">
@@ -157,7 +156,7 @@ default React.createClass({
                     </div>
                    </div> 
             </div>
-        );
+        );*/
     }
 
     

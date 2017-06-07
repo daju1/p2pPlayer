@@ -1,18 +1,17 @@
-﻿import React from 'react';
-import _ from 'lodash';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ls from 'local-storage';
+﻿var React = require('react');
+var _ = require('lodash');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var ls = require('local-storage');
 
-import PlayerActions from '../actions';
-import VisibilityStore from './Visibility/store';
-import VisibilityActions from './Visibility/actions';
-import player from '../utils/player';
-import path from 'path';
-import ModalActions from './Modal/actions';
-import ui from '../utils/ui';
+var PlayerActions = require('../actions');
+var VisibilityStore = require('./Visibility/store');
+var VisibilityActions = require('./Visibility/actions');
+var player = require('../utils/player');
+var path = require('path');
+var ModalActions = require('./Modal/actions');
+var ui = require('../utils/ui');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [PureRenderMixin],
 
@@ -61,7 +60,7 @@ default React.createClass({
         ui.toggleMenu('casting');
     },
 
-    render() {
+    render() { return '';/*
         var type = [
             {
                 name: 'DLNA',
@@ -95,7 +94,7 @@ default React.createClass({
                     }
             </div>
             </div>
-        );
+        );*/
     }
 
     

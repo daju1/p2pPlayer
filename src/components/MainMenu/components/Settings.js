@@ -628,7 +628,7 @@ module.exports = React.createClass({
         this.refs['ytdlQualityInput'].value = this.state.mediaQualities[newVal];
     },
 
-    render() {
+    render() { return '';/*
         var renderObj = [
             {
                 type: 'header',
@@ -947,7 +947,7 @@ module.exports = React.createClass({
                     {indents}
                 </div>
             </div>
-        );
+        );*/
     }
 });
 

@@ -12,7 +12,7 @@ var TooltipActions = function() {
 
     return TooltipActions;
 
-}
+}();
 
 
 module.exports = alt.createActions(TooltipActions);

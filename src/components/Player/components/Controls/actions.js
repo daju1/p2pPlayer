@@ -52,7 +52,7 @@ var ControlActions = function() {
     }]);
     return ControlActions;
 
-}
+}();
 
 
 module.exports = alt.createActions(ControlActions);

@@ -1,30 +1,29 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var {
     History
 }
-from 'react-router';
+= require('react-router');
 
-import PlayerStore from '../store';
-import PlayerActions from '../actions';
-import VisibilityStore from './Visibility/store';
-import ModalActions from './Modal/actions';
-import {
+var PlayerStore = require('../store');
+var PlayerActions = require('../actions');
+var VisibilityStore = require('./Visibility/store');
+var ModalActions = require('./Modal/actions');
+var {
     ipcRenderer
 }
-from 'electron';
-import BaseModalActions from '../../Modal/actions';
-import torrentActions from '../../../actions/torrentActions';
-import engineStore from '../../../stores/engineStore';
-import ls from 'local-storage';
-import ui from '../utils/ui';
-import player from '../utils/player';
-import events from '../utils/events';
-import _ from 'lodash';
-import LinkSupport from './../utils/supportedLinks';
+= require('electron');
+var BaseModalActions = require('../../Modal/actions');
+var torrentActions = require('../../../actions/torrentActions');
+var engineStore = require('../../../stores/engineStore');
+var ls = require('local-storage');
+var ui = require('../utils/ui');
+var player = require('../utils/player');
+var events = require('../utils/events');
+var _ = require('lodash');
+var LinkSupport = require('./../utils/supportedLinks');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History, PureRenderMixin],
 
@@ -195,7 +194,7 @@ default React.createClass({
 
         this.history.replaceState(null, 'torrentDashboard');
     },
-    render() {
+    render() { return '';/*
         if (player && player.wcjs && player.wcjs.playlist.currentItem > -1) {
             var isLocal = player.itemDesc().mrl.startsWith('file://');
         } else var isLocal = false;
@@ -230,6 +229,6 @@ default React.createClass({
     
                 </div>
             </div>
-        );
+        );*/
     }
 });

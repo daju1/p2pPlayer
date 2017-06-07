@@ -47,6 +47,6 @@ var darkModalStore = function() {
     }
     }]);
     return darkModalStore;
-}
+}();
 
 module.exports = alt.createStore(darkModalStore);

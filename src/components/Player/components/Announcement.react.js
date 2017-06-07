@@ -1,10 +1,9 @@
-﻿import React from 'react';
-import PlayerStore from '../store';
-import VisibilityStore from './Visibility/store';
-import player from '../utils/player';
+﻿var React = require('react');
+var PlayerStore = require('../store');
+var VisibilityStore = require('./Visibility/store');
+var player = require('../utils/player');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         var visibilityState = VisibilityStore.getState();
@@ -39,7 +38,7 @@ default React.createClass({
         }
     },
 
-    render() {
+    render() { return '';/*
         var style = {
             fontSize: this.state.size,
             transition: this.state.effect ? 'opacity .5s ease-in-out' : 'none',
@@ -48,7 +47,7 @@ default React.createClass({
         };
         return (
             <span className='wcjs-announce' style={style}>{this.state.text}</span>
-        );
+        );*/
     }
 
     

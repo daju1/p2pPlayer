@@ -1,4 +1,5 @@
 var alt = require('../../alt');
+var helper = require('../../helper');
 var {
     ipcRenderer
 }
@@ -8,14 +9,18 @@ var engineStore = require('../../stores/engineStore');
 var ModalActions = require('../Modal/actions');
 var ls = require('local-storage');
 
-class HeaderActions {
-    constructor() {
+var HeaderActions = function() {
+    function HeaderActions() {
+        helper.classCallCheck(this, HeaderActions);
         this.generateActions(
             'maximize',
             'minimize'
         );
     }
+    helper.createClass(HeaderActions, [{
 
+    key: 'toggleMaximize',
+    value: function 
     toggleMaximize() {
         this.dispatch();
         let state = !ipcRenderer.sendSync('app:get:maximized');
@@ -24,12 +29,18 @@ class HeaderActions {
         document.querySelector('header .controls div.toggle i:nth-of-type(2)').style.display = state ? 'block' : 'none';
     }
 
+    }, {
+    key: 'toggleMinimize',
+    value: function 
     toggleMinimize() {
         this.dispatch();
         remote.getCurrentWindow().minimize();
         this.actions.minimize();
     }
 
+    }, {
+    key: 'close',
+    value: function 
     close() {
         var engineState = engineStore.getState();
         
@@ -55,7 +66,9 @@ class HeaderActions {
             ipcRenderer.send('app:close');
         }
     }
-}
+    }]);
+    return HeaderActions;
+}();
 
 
 module.exports = alt.createActions(HeaderActions);

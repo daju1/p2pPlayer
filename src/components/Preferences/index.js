@@ -22,7 +22,7 @@ module.exports = React.createClass({
 
     },
     render() {
-        return (
+        return '';/*(
             <div className="wrapper">
                <center>
                     <Paper className="holder" rounded={true} zDepth={1}>
@@ -30,6 +30,6 @@ module.exports = React.createClass({
                     </Paper>
                </center>
             </div>
-        );
+        );*/
     }
 });

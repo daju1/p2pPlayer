@@ -23,6 +23,6 @@ var ControlStore = function() {
     }]);
     return ControlStore;
 
-}
+}();
 
 module.exports = alt.createStore(ControlStore);

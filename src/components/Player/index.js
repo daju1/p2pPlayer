@@ -1,47 +1,47 @@
-﻿import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import PlayerHeader from './components/Header.react';
-import PlayerControls from './components/Controls';
-import PlayerRender from './components/Renderer.react';
-import Playlist from './components/Playlist.react';
-import Settings from './components/MenuHolders/Settings';
-import SubtitleList from './components/Subtitles.react';
-import CastingMenu from './components/CastingMenu.react';
-import SubtitleText from './components/SubtitleText';
-import SubtitleActions from './components/SubtitleText/actions';
-import Announcement from './components/Announcement.react';
-import PlayerActions from './actions';
-import path from 'path';
-import _ from 'lodash';
-import metaParser from './utils/metaParser';
-import parser from './utils/parser';
-import sorter from './utils/sort';
-import fs from 'fs';
-import supported from '../../utils/isSupported';
+﻿var React = require('react');
+var PureRenderMixin = require('react-addons-pure-render-mixin');
+var PlayerHeader = require('./components/Header.react');
+var PlayerControls = require('./components/Controls');
+var PlayerRender = require('./components/Renderer.react');
+var Playlist = require('./components/Playlist.react');
+var Settings = require('./components/MenuHolders/Settings');
+var SubtitleList = require('./components/Subtitles.react');
+var CastingMenu = require('./components/CastingMenu.react');
+var SubtitleText = require('./components/SubtitleText');
+var SubtitleActions = require('./components/SubtitleText/actions');
+var Announcement = require('./components/Announcement.react');
+var PlayerActions = require('./actions');
+var path = require('path');
+var _ = require('lodash');
+var metaParser = require('./utils/metaParser');
+var parser = require('./utils/parser');
+var sorter = require('./utils/sort');
+var fs = require('fs');
+var supported = require('../../utils/isSupported');
 
-import {
+var {
     webFrame
-} from 'electron';
-import remote from 'remote';
-import ls from 'local-storage';
-import player from './utils/player';
-import cacheUtil from './utils/cache';
-import hotkeys from './utils/hotkeys';
-import contextMenu from './utils/contextMenu';
+} = require('electron');
+var remote = require('remote');
+var ls = require('local-storage');
+var player = require('./utils/player');
+var cacheUtil = require('./utils/cache');
+var hotkeys = require('./utils/hotkeys');
+var contextMenu = require('./utils/contextMenu');
 
-import ControlStore from './components/Controls/store';
-import ControlActions from './components/Controls/actions';
-import VisibilityStore from './components/Visibility/store';
-import VisibilityActions from './components/Visibility/actions';
-import torrentStream from 'torrent-stream';
-import torrentUtil from '../../utils/stream/torrentUtil';
-import linkUtil from '../../utils/linkUtil';
-import readTorrent from 'read-torrent';
-import getPort from 'get-port';
+var ControlStore = require('./components/Controls/store');
+var ControlActions = require('./components/Controls/actions');
+var VisibilityStore = require('./components/Visibility/store');
+var VisibilityActions = require('./components/Visibility/actions');
+var torrentStream = require('torrent-stream');
+var torrentUtil = require('../../utils/stream/torrentUtil');
+var linkUtil = require('../../utils/linkUtil');
+var readTorrent = require('read-torrent');
+var getPort = require('get-port');
 
-import ReactNotify from 'react-notify';
+var ReactNotify = require('react-notify');
 
-import {mouseTrap} from 'react-mousetrap';
+var {mouseTrap} = require('react-mousetrap');
 
 var lastPos = false;
 
@@ -372,7 +372,7 @@ const Player = React.createClass({
         var cursorStyle = {
             cursor: this.state.uiShown ? 'pointer' : 'none'
         };
-        return (
+        return '');/*(
             <div className="wcjs-player" style={cursorStyle}>
                 <PlayerHeader />
                 <PlayerRender />
@@ -386,9 +386,8 @@ const Player = React.createClass({
                 <div className="castingBackground" />
                 <ReactNotify ref='notificator'/>
             </div>
-        );
+        );*/
     }
 });
 
-export
-default mouseTrap(Player)
+module.exports = mouseTrap(Player)
