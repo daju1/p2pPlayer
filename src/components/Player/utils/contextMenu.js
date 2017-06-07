@@ -14,7 +14,7 @@ var ModalActions = require('../components/Modal/actions');
 var {
     ipcRenderer, shell
 }
-= require( 'electron';
+= require( 'electron');
 
 var sleeper = null;
 

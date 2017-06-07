@@ -28,6 +28,6 @@ var SubtitleStore = function() {
     }]);
     return SubtitleStore;
 
-}
+}();
 
 module.exports = alt.createStore(SubtitleStore);

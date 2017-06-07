@@ -109,7 +109,7 @@ var SubtitleActions = function() {
     }]);
     return SubtitleActions;
 
-}
+}();
 
 
 module.exports = alt.createActions(SubtitleActions);

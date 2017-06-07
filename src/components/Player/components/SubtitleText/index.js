@@ -49,8 +49,8 @@ module.exports = React.createClass({
             color: this.state.hex[this.state.color],
             bottom: this.state.subBottom
         };
-        return (
+        return '';/*(
             <span className='wcjs-subtitle-text' style={style} dangerouslySetInnerHTML={{__html: this.state.text}} />
-        );
+        ); */
     }
 });

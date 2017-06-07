@@ -56,12 +56,12 @@ module.exports = React.createClass({
 
     },
 
-    getItems() {
+    /*getItems() {
         let items = []
         if (!player.wcjs.playlist) return items;
         for (var idx = 0; idx < player.wcjs.playlist.items.count; idx++) {
             var item = player.itemDesc(idx);
-            var noImage = 'images/video-placeholder.svg');
+            var noImage = 'images/video-placeholder.svg';
 
             !item.setting && (item.setting = {})
 
@@ -96,7 +96,7 @@ module.exports = React.createClass({
         }
 
         return items;
-    },
+    },*/
     
     sortableGroupDecorator(componentBackingInstance) {
         // check if backing instance not null
@@ -109,7 +109,7 @@ module.exports = React.createClass({
                     window.immuneToDrop = true;
                     // set a class to the playlist while dragging
                     var playlistElem = window.document.querySelector('.playlist-inner');
-                    playlistElem.className += ' playlist-dragging');
+                    playlistElem.className += ' playlist-dragging';
                 },
                 
                 onEnd: evt => {

@@ -147,7 +147,7 @@ module.exports = React.createClass({
         });
         
         // set tab line color
-        document.querySelector('paper-tabs').$.selectionBar.style.backgroundColor = '#ff4081');
+        document.querySelector('paper-tabs').$.selectionBar.style.backgroundColor = '#ff4081';
         
         // add event listeners for togglers
         var that = this;
@@ -235,7 +235,7 @@ module.exports = React.createClass({
 
     _handleSubDelay(event, direction) {
        var newValue = parseInt(this.refs['subDelayInput'].value) + (direction * 50);
-       this.refs['subDelayInput'].value = newValue + ' ms');
+       this.refs['subDelayInput'].value = newValue + ' ms';
        if (event) {
             player.wcjs.subtitles.delay = newValue;
             player.set({
@@ -262,7 +262,7 @@ module.exports = React.createClass({
         if (isNaN(newValue))
             newValue = 0;
 
-        this.refs['subDelayInput'].value = newValue + ' ms');
+        this.refs['subDelayInput'].value = newValue + ' ms';
         player.wcjs.subtitles.delay = newValue;
         player.set({
             subDelay: newValue
@@ -271,7 +271,7 @@ module.exports = React.createClass({
 
     _handleAudioDelay(event, direction) {
         var newValue = parseInt(this.refs['audioDelayInput'].value) + (direction * 50);
-        this.refs['audioDelayInput'].value = newValue + ' ms');
+        this.refs['audioDelayInput'].value = newValue + ' ms';
         player.set({
             audioDelay: newValue
         });
@@ -296,7 +296,7 @@ module.exports = React.createClass({
         if (isNaN(newValue))
             newValue = 0;
 
-        this.refs['audioDelayInput'].value = newValue + ' ms');
+        this.refs['audioDelayInput'].value = newValue + ' ms';
         player.set({
             audioDelay: newValue
         });
@@ -334,7 +334,7 @@ module.exports = React.createClass({
                 speed: newValue
             });
             newValue = parseFloat(Math.round(newValue * 100) / 100).toFixed(2);
-            this.refs['speedInput'].value = newValue + 'x');
+            this.refs['speedInput'].value = newValue + 'x';
         }
     },
     
@@ -363,7 +363,7 @@ module.exports = React.createClass({
 
         var newValue = parseFloat(Math.round(newValue * 100) / 100).toFixed(2);
 
-        this.refs['speedInput'].value = newValue + 'x');
+        this.refs['speedInput'].value = newValue + 'x';
         player.wcjs.input.rate = newValue;
     },
     
@@ -373,7 +373,7 @@ module.exports = React.createClass({
             newValue = 5;
         else if (newValue > 400)
             newValue = 400;
-        this.refs['subSizeInput'].value = newValue + '%');
+        this.refs['subSizeInput'].value = newValue + '%';
         if (event) {
             ls('customSubSize', newValue);
             player.events.emit('subtitleUpdate');
@@ -403,7 +403,7 @@ module.exports = React.createClass({
         else if (newValue > 400)
             newValue = 400;
 
-        this.refs['subSizeInput'].value = newValue + '%');
+        this.refs['subSizeInput'].value = newValue + '%';
         
         if (event) {
             ls('customSubSize', newValue);
@@ -556,7 +556,7 @@ module.exports = React.createClass({
             newValue = 0;
         if (newValue > 60000)
             newValue = 60000;
-        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec');
+        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec';
         if (event)
             ls('bufferSize', newValue);
     },
@@ -581,13 +581,13 @@ module.exports = React.createClass({
         if (newValue > 60000)
             newValue = 60000;
 
-        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec');
+        this.refs['bufferSizeInput'].value = (newValue/1000).toFixed(1) + ' sec';
         ls('bufferSize', newValue);
     },
 
     _handleClearCacheFolder(event) {
         ls.remove('cacheFolder');
-        this.refs['cacheFolderInput'].value = 'Temp');
+        this.refs['cacheFolderInput'].value = 'Temp';
     },
 
     _handleCacheFolderFocus(event) {
@@ -606,7 +606,7 @@ module.exports = React.createClass({
 
     _handleClearDownload(event) {
         ls.remove('downloadFolder');
-        this.refs['downloadInput'].value = 'Temp');
+        this.refs['downloadInput'].value = 'Temp';
     },
 
     _handleDownloadFocus(event) {
@@ -642,7 +642,7 @@ module.exports = React.createClass({
         obj[field] = false;
         _.each(obj, (el, ij) => {
             if (el)
-                this.refs[ij + 'Input'].value = 'Default');
+                this.refs[ij + 'Input'].value = 'Default';
         });
     },
 
@@ -760,11 +760,11 @@ module.exports = React.createClass({
         
         ls('removeLogic', newLogic);
         if (newLogic == 0) {
-            var newLabel = 'Always Ask');
+            var newLabel = 'Always Ask';
         } else if (newLogic == 1) {
-            var newLabel = 'Always Remove');
+            var newLabel = 'Always Remove';
         } else if (newLogic == 2) {
-            var newLabel = 'Always Keep');
+            var newLabel = 'Always Keep';
         }
         
         this.refs['removeLogicInput'].value = newLabel;
@@ -779,9 +779,9 @@ module.exports = React.createClass({
         ls('downloadType', newLogic);
         
         if (newLogic == 0) {
-            var newLabel = 'Player');
+            var newLabel = 'Player';
         } else if (newLogic == 1) {
-            var newLabel = 'Dashboard');
+            var newLabel = 'Dashboard';
         }
         
         this.refs['downloadTypeInput'].value = newLabel;
@@ -798,7 +798,7 @@ module.exports = React.createClass({
         if (newFreq < 0) newFreq = 0;
         
         ls('renderFreq', newFreq);
-        this.refs['renderFreqInput'].value = newFreq + 'ms');
+        this.refs['renderFreqInput'].value = newFreq + 'ms';
     },
     
     _handleRenderFreqKeys(event) {
@@ -820,7 +820,7 @@ module.exports = React.createClass({
             newValue = 0;
 
         ls('renderFreq', newValue);
-        this.refs['renderFreqInput'].value = newValue + 'ms');
+        this.refs['renderFreqInput'].value = newValue + 'ms';
     },
     
     render() { return '';/*
