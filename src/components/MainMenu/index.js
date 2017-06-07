@@ -1,40 +1,39 @@
-import React from 'react';
-import Dropzone from 'react-dropzone';
+var React = require('react');
+var Dropzone = require('react-dropzone');
 
-import sorter from './../Player/utils/sort';
-import parser from './../Player/utils/parser';
+var sorter = require('./../Player/utils/sort');
+var parser = require('./../Player/utils/parser');
 
-import MainMenuActions from './actions';
-import PlayerActions from '../../components/Player/actions';
-import ModalActions from './../Modal/actions';
-import MessageActions from '../Message/actions';
-import TorrentActions from '../../actions/torrentActions';
-import metaParser from '../../components/Player/utils/metaParser';
-import Plugins from './components/Plugins';
-import Settings from './components/Settings';
-import remote from 'remote';
-import path from 'path';
-import fs from 'fs';
-import player from '../Player/utils/player';
-import supported from '../../utils/isSupported';
-import {
+var MainMenuActions = require('./actions');
+var PlayerActions = require('../../components/Player/actions');
+var ModalActions = require('./../Modal/actions');
+var MessageActions = require('../Message/actions');
+var TorrentActions = require('../../actions/torrentActions');
+var metaParser = require('../../components/Player/utils/metaParser');
+var Plugins = require('./components/Plugins');
+var Settings = require('./components/Settings');
+var remote = require('remote');
+var path = require('path');
+var fs = require('fs');
+var player = require('../Player/utils/player');
+var supported = require('../../utils/isSupported');
+var {
     ipcRenderer
 }
-from 'electron';
+= require('electron');
 
-import {
+var {
     webFrame
 }
-from 'electron';
+= require('electron');
 
 var immuneToLeave = false;
 
-import linkUtil from '../../utils/linkUtil';
+var linkUtil = require('../../utils/linkUtil');
 
-import _ from 'lodash';
+var _ = require('lodash');
 
-export
-default React.createClass({
+module.exports = React.createClass({
     
     getInitialState() {
         return {
@@ -295,7 +294,7 @@ default React.createClass({
     render() {
         var extensionView = this.state.extensionView ? (<Plugins />) : '';
         var settingsView = this.state.settingsView ? (<Settings />) : '';
-        return (
+        return '';/*(
             <div className="wrapper">
                {extensionView}
                {settingsView}
@@ -351,6 +350,6 @@ default React.createClass({
                     </Dropzone>
                </center>
             </div>
-        );
+        );*/
     }
 });

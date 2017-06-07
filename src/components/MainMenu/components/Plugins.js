@@ -1,11 +1,11 @@
-import React from 'react';
-import _ from 'lodash';
-import plugins from '../../../utils/plugins';
-import async from 'async';
-import MetaInspector from 'node-metainspector';
-import ls from 'local-storage';
-import ModalActions from '../../Modal/actions';
-import filmonUtil from '../../Player/utils/filmon';
+var React = require('react');
+var _ = require('lodash');
+var plugins = require('../../../utils/plugins');
+var async = require('async');
+var MetaInspector = require('node-metainspector');
+var ls = require('local-storage');
+var ModalActions = require('../../Modal/actions');
+var filmonUtil = require('../../Player/utils/filmon');
 
 var skipScroll;
 
@@ -133,8 +133,7 @@ var getLogo = async.queue( (el, next) => {
 
 }, 1);
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     getInitialState() {
         return {

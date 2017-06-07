@@ -1,14 +1,13 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     History
 }
-from 'react-router';
-import HeaderStore from './store';
-import HeaderActions from './actions';
-import player from '../Player/utils/player';
+= require('react-router');
+var HeaderStore = require('./store');
+var HeaderActions = require('./actions');
+var player = require('../Player/utils/player');
 
-export
-default React.createClass({
+module.exports = React.createClass({
 
     mixins: [History],
 
@@ -53,7 +52,7 @@ default React.createClass({
         }
     },
     render() {
-        return (
+        return '';/*(
             <header className={this.state.view}>
                 <div className={'controls ' + process.platform}>
                     <div className="close" onClick={HeaderActions.close}>
@@ -71,6 +70,6 @@ default React.createClass({
                     {this.state.title}
                 </div>
             </header>
-        );
+        );*/
     }
 });

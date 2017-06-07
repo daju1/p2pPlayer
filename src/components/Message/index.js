@@ -1,11 +1,10 @@
-import React from 'react';
-import _ from 'lodash';
-import MessageStore from './store';
-import MessageActions from './actions';
+var React = require('react');
+var _ = require('lodash');
+var MessageStore = require('./store');
+var MessageActions = require('./actions');
 
 
-export
-default React.createClass({
+module.exports = React.createClass({
     getInitialState() {
         return {
             message: ''
@@ -24,7 +23,7 @@ default React.createClass({
         });
     },
     render() {
-        return (
+        return "";/*(
             <div>
 
                 <paper-toast
@@ -32,6 +31,6 @@ default React.createClass({
                     text={this.state.message} />
 
             </div>
-        );
+        );*/
     }
 });

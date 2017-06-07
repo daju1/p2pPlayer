@@ -1,6 +1,6 @@
-import alt from '../../alt';
-import HeaderActions from './actions';
-import engineStore from '../../stores/engineStore';
+var alt = require('../../alt');
+var HeaderActions = require('./actions');
+var engineStore = require('../../stores/engineStore');
 
 class HeaderStore {
     constructor() {
@@ -24,5 +24,4 @@ class HeaderStore {
     
 }
 
-export
-default alt.createStore(HeaderStore);
+module.exports = alt.createStore(HeaderStore);

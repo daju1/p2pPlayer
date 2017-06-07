@@ -1,12 +1,12 @@
-import alt from '../../alt'
-import {
+var alt = require('../../alt');
+var {
     ipcRenderer
 }
-from 'electron';
-import remote from 'remote';
-import engineStore from '../../stores/engineStore';
-import ModalActions from '../Modal/actions';
-import ls from 'local-storage';
+= require('electron');
+var remote = require('remote');
+var engineStore = require('../../stores/engineStore');
+var ModalActions = require('../Modal/actions');
+var ls = require('local-storage');
 
 class HeaderActions {
     constructor() {
@@ -58,5 +58,4 @@ class HeaderActions {
 }
 
 
-export
-default alt.createActions(HeaderActions);
+module.exports = alt.createActions(HeaderActions);

@@ -1,15 +1,14 @@
-import React from 'react';
-import {
+var React = require('react');
+var {
     RaisedButton, Paper
 }
-from 'material-ui';
+= require('material-ui');
 
-import utils from '../../utils/util';
+var utils = require('../../utils/util');
 
 
 
-export
-default React.createClass({
+module.exports = React.createClass({
     getInitialState() {
         return {
             alwaysOnTop: false

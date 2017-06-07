@@ -1,13 +1,13 @@
-import React from 'react';
+var React = require('react');
 
-import engineStore from '../../stores/engineStore';
-import torrentActions from '../../actions/torrentActions';
-import ModalActions from '../Modal/actions';
-import player from '../Player/utils/player';
+var engineStore = require('../../stores/engineStore');
+var torrentActions = require('../../actions/torrentActions');
+var ModalActions = require('../Modal/actions');
+var player = require('../Player/utils/player');
 
-import _ from 'lodash';
+var _ = require('lodash');
 
-import utils from '../../utils/util';
+var utils = require('../../utils/util');
 
 function readableSize(fileSizeInBytes) {
     
@@ -23,8 +23,7 @@ function readableSize(fileSizeInBytes) {
     return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
 }
 
-export
-default React.createClass({
+module.exports = React.createClass({
     getInitialState() {
 
         var engineState = engineStore.getState();
@@ -104,7 +103,7 @@ default React.createClass({
         }
     },
 
-    render() {
+    render() { return ''; /*
         var torrent = this.state.torrents[this.state.infoHash];
 
         if (!torrent)
@@ -188,6 +187,6 @@ default React.createClass({
                     {fileList}
                 </div>
             </div>
-        );
+        );*/
     }
 });
