@@ -21,7 +21,8 @@ var TimeActions = require('./Controls/components/HumanTime/actions');
 var SubtitleActions = require('./SubtitleText/actions');
 
 try {
-    var wcjs_path = (process.env.NODE_ENV === 'development') ? path.join(__dirname, '../../../../bin/', 'WebChimera.js.node') : path.join(app.getAppPath(), '../bin/', 'WebChimera.js.node');
+    var wcjs_path = (process.env.NODE_ENV === 'development') ? path.join(__dirname, '../../../../../../build/bin/', 'WebChimera.js.node') : path.join(app.getAppPath(), '../../../build/bin/', 'WebChimera.js.node');
+....console.log('wcjs_path: ', wcjs_path);
     var wcjs = require(wcjs_path);
 } catch (e) {
     console.error('WCJS Load Error:', e);
