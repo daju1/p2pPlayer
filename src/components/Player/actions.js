@@ -6,7 +6,6 @@ var {
     ipcRenderer
 }
 = require('electron');
-var HistoryStore = require('../../stores/historyStore');
 var torrentUtil = require('../../utils/stream/torrentUtil');
 var player = require('./utils/player');
 var ls = require('local-storage');
@@ -92,7 +91,12 @@ var PlayerActions = function() {
             noStart = true;
             data = data.files;
         } else if (!player.wcjs.playlist.itemCount) {
-            HistoryStore.getState().history.replaceState(null, 'player');
+            var historyStore = require('../../stores/historyStore');
+            var state = historyStore.getState();
+            if (state.history)
+                state.history.replaceState(null, 'player');
+            else
+                console.warn('historyStore.getState().history is false');
         }
 
         var playerState = this.alt.stores.playerStore.getState();

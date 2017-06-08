@@ -92,6 +92,7 @@ var torrentActions = function() {
                             }
                         });
                     }
+                    // TODO fix ls_downloadType is null 
                     var ls_downloadType = ls('downloadType'); 
                     var ls_playerType = ls('playerType'); 
                     var ls_playerPath = ls('playerPath'); 
@@ -100,7 +101,7 @@ var torrentActions = function() {
                     if (ls_downloadType == 0 && !ls_playerType) {
                         // start with internal player
                         PlayerActions.addPlaylist(newFiles);
-                    } else if (ls_downloadType == 1 || ls_playerType) {
+                    } else if (ls_downloadType == 1 || ls_playerType || null == ls_downloadType) {
                         if (ls_playerType && ls_playerPath) {
                             // start with external player
                             // player.generatePlaylist(newFiles);
@@ -111,17 +112,17 @@ var torrentActions = function() {
                         PlayerActions.addPlaylist(newData);
 
                         var historyStore = require('../stores/historyStore');
-                        historyStore.getState().history.replaceState(null, 'torrentDashboard');
+                        var state = historyStore.getState();
+                        if (state.history)
+                            state.history.replaceState(null, 'torrentDashboard');
+                        else
+                            console.warn('historyStore.getState().history is false');
 
 
                         process.nextTick(function () {
                             callback_started_torrent_dashboard();
                         });
                     }
-                    /*else
-                    {
-                        PlayerActions.addPlaylist(newFiles);
-                    }*/
 
 
                     // start searching for thumbnails after 1 second

@@ -5,7 +5,6 @@ var SubtitleActions = require('../components/SubtitleText/actions');
 var PlayerActions = require('../actions');
 var BaseModalActions = require('../../Modal/actions');
 var engineStore = require('../../../stores/engineStore');
-var HistoryStore = require('../../../stores/historyStore');
 
 var player = require('./player');
 var ls = require('local-storage');
@@ -52,7 +51,12 @@ var actions = {
 
         player.wcjs.stop();
 
-        HistoryStore.getState().history.replaceState(null, 'torrentDashboard');
+        var historyStore = require('../../../stores/historyStore');
+        var state = historyStore.getState();
+        if (state.history)
+            state.history.replaceState(null, 'torrentDashboard');
+        else
+            console.warn('historyStore.getState().history is false');
 
     },
     downloadFolder() {
