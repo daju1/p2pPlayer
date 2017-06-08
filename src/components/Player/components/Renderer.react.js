@@ -22,7 +22,7 @@ var SubtitleActions = require('./SubtitleText/actions');
 
 try {
     var wcjs_path = (process.env.NODE_ENV === 'development') ? path.join(__dirname, '../../../../../../build/bin/', 'WebChimera.js.node') : path.join(app.getAppPath(), '../../../build/bin/', 'WebChimera.js.node');
-....console.log('wcjs_path: ', wcjs_path);
+    console.log('wcjs_path: ', wcjs_path);
     var wcjs = require(wcjs_path);
 } catch (e) {
     console.error('WCJS Load Error:', e);
