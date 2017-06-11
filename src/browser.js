@@ -1,12 +1,12 @@
-import app from 'app';
-import BrowserWindow from 'browser-window';
-import rimraf from 'rimraf';
-import path from 'path';
-import {
+var app = require('app');
+var BrowserWindow = require('browser-window');
+var rimraf = require('rimraf');
+var path = require('path');
+var {
     ipcMain, powerSaveBlocker, Menu
 }
-from 'electron';
-import yargs from 'yargs';
+= require('electron');
+var yargs = require('yargs');
 
 const args = yargs(process.argv.slice(1)).wrap(100).argv;
 const startupTime = new Date().getTime();
@@ -14,9 +14,9 @@ var powerSaveBlockerState = false;
 
 if (/^win/.test(process.platform)) {
     if (args.dev) {
-        process.env['VLC_PLUGIN_PATH'] = require('path').join(__dirname, '../bin/plugins');
+        process.env['VLC_PLUGIN_PATH'] = require('path').join(__dirname, '../../../build/bin/plugins');
     } else {
-        process.env['VLC_PLUGIN_PATH'] = require('path').join(__dirname, '../../bin/plugins');
+        process.env['VLC_PLUGIN_PATH'] = require('path').join(__dirname, '../../../../build/bin/plugins');
     }
 }
 

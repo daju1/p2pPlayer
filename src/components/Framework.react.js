@@ -47,11 +47,11 @@ var passArgs = function(e, args) {
     }
 }
 
-const Framework = React.createClass({
+class Framework{
 
-    mixins: [PureRenderMixin, RouteContext, History],
+    //mixins: [PureRenderMixin, RouteContext, History],
 
-    componentWillMount() {
+    constructor() {
 
         plugins.update();
 
@@ -67,7 +67,7 @@ const Framework = React.createClass({
 
         filmonUtil.init();
 
-        this.props.bindShortcut('ctrl+d', () => ipcRenderer.send('app:toggleDevTools'));
+        //this.props.bindShortcut('ctrl+d', () => ipcRenderer.send('app:toggleDevTools'));
 
         window.addEventListener('mouseup', function() {
             // removes polymer's element focus which hijacks my enter / space hotkeys
@@ -80,8 +80,8 @@ const Framework = React.createClass({
         subUtil.fetchOsCookie(true);
 
         historyActions.history(this.history);
-        this.history.listen(this.updatehistory);
-    },
+        //this.history.listen(this.updatehistory);
+    }
 
     componentDidMount() {
         ipcRenderer.send('app:startup', new Date().getTime());
@@ -117,16 +117,16 @@ const Framework = React.createClass({
             var visitor = ua('UA-65979437-4', ls('cid'));
         }
         visitor.pageview("/").send();
-    },
+    }
 
     componentWillUnmount() {
         ipcRenderer.removeListener('cmdline', passArgs);
         window.removeEventListener('resize', this.handleResize);
-    },
+    }
 
     updatehistory() {
         historyActions.history(this.history);
-    },
+    }
 
     render() {
         return '';/*(
@@ -141,6 +141,7 @@ const Framework = React.createClass({
             </div>
         );*/
     }
-});
+};
 
-module.exports = mouseTrap(Framework)
+//module.exports = mouseTrap(Framework)
+module.exports = Framework;

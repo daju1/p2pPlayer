@@ -269,3 +269,4 @@ class p2pPlayerAPI {
 }
 
 module.exports.api = new p2pPlayerAPI();
+module.exports.routes = routes;

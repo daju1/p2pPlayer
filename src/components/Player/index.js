@@ -45,22 +45,29 @@ var {mouseTrap} = require('react-mousetrap');
 
 var lastPos = false;
 
-const Player = React.createClass({
-    mixins: [PureRenderMixin],
+class Player {
+    //mixins: [PureRenderMixin],
+    constructor()
+    {
+        this.props = {}
+
+        this.componentWillMount();
+        this.componentDidMount();
+    }
 
     getInitialState() {
         var visibilityState = VisibilityStore.getState();
         return {
             uiShown: visibilityState.uiShown
         }
-    },
+    }
     componentWillMount() {
         if (!ls.isSet('customSubSize'))
             ls('customSubSize', 100);
         VisibilityStore.listen(this.update);
         remote.getCurrentWindow().setMinimumSize(392, 228);
         webFrame.setZoomLevel(ls.isSet('zoomLevel') ? ls('zoomLevel') : 0);
-        hotkeys.attach(this.props);
+        //hotkeys.attach(this.props);
 
         if (ls('resizeOnPlaylist'))
             window.firstResize = true;
@@ -68,7 +75,7 @@ const Player = React.createClass({
         // fix window resize on top side    
         if (document.querySelector('header'))
             document.querySelector('header').style.WebkitAppRegion = "no-drag"
-    },
+    }
     componentWillUnmount() {
         VisibilityStore.unlisten(this.update);
         hotkeys.detach(this.props);
@@ -76,6 +83,7 @@ const Player = React.createClass({
         window.removeEventListener('contextmenu', contextMenu.listen);
         window.removeEventListener('mousemove', this.hover);
         var handler = document.getElementsByClassName("wcjs-player")[0];
+console.log(document);
 
         handler.removeEventListener('dragenter', this.dragEnter)
         handler.removeEventListener('dragover', this.nullEvent);
@@ -86,14 +94,14 @@ const Player = React.createClass({
         // fix window resize on top side
         if (document.querySelector('header'))
             document.querySelector('header').style.WebkitAppRegion = "drag"
-    },
+    }
     componentDidMount() {
         var announcer = document.getElementsByClassName('wcjs-announce')[0];
 //        if (['', '0'].indexOf(announcer.style.opacity) > -1) {
 //            events.buffering(0);
 //        }
         player.set({
-            notifier: this.refs.notificator
+            //notifier: this.refs.notificator
         });
         cacheUtil.start(player);
         player.loadState();
@@ -101,17 +109,21 @@ const Player = React.createClass({
         window.addEventListener('mousemove', this.hover, false);
 
         var handler = document.getElementsByClassName("wcjs-player")[0];
-
+console.log(document);
+if (!handler){
+console.warn('have not fount wcjs-player div');
+}
+else{
         handler.ondragover = handler.ondragleave = handler.ondragend = this.nullEvent;
         handler.ondragenter = this.dragEnter;
         handler.ondrop = this.fileDrop;
-
+}
         if (window.clFullscreen) {
             delete window.clFullscreen;
             ControlActions.toggleFullscreen();
         }
 
-    },
+    }
     update() {
 //        console.log('player update');
         if (this.isMounted()) {
@@ -120,7 +132,7 @@ const Player = React.createClass({
                 uiShown: visibilityState.uiShown
             });
         }
-    },
+    }
     dragEnter(e) {
         var data = e && e.dataTransfer && e.dataTransfer.items ? e.dataTransfer.items : [];
         if (process.platform == 'darwin' && data && data.length && data[0].kind != 'file') {
@@ -160,10 +172,10 @@ const Player = React.createClass({
             dropDummy.addEventListener('dragleave', leaveMiddleware)
             dropDummy.addEventListener('drop', dropMiddleware)
         }
-    },
+    }
     nullEvent() {
         return false;
-    },
+    }
     fileDrop(e) {
 
         e.preventDefault();
@@ -352,27 +364,27 @@ const Player = React.createClass({
         },1000);
 
         return false;
-    },
+    }
     hideUI() {
         if (!ControlStore.getState().scrobbling)
             VisibilityActions.uiShown(false);
         else
             player.hoverTimeout = setTimeout(this.hideUI, 3000);
-    },
+    }
     hover(event) {
         var curPos = event.pageX+'x'+event.pageY;
         if (curPos != lastPos) {
             lastPos = curPos;
             player.hoverTimeout && clearTimeout(player.hoverTimeout);
-            this.state.uiShown || VisibilityActions.uiShown(true);
+            //this.state.uiShown || VisibilityActions.uiShown(true);
             player.hoverTimeout = setTimeout(this.hideUI, 3000);
         }
-    },
+    }
     render() {
         var cursorStyle = {
             cursor: this.state.uiShown ? 'pointer' : 'none'
         };
-        return '');/*(
+        return '';/*(
             <div className="wcjs-player" style={cursorStyle}>
                 <PlayerHeader />
                 <PlayerRender />
@@ -388,6 +400,17 @@ const Player = React.createClass({
             </div>
         );*/
     }
-});
+};
 
-module.exports = mouseTrap(Player)
+module.exports.player = new Player();
+
+module.exports.playerHeader = new PlayerHeader()
+module.exports.playerRender = new PlayerRender()
+module.exports.announcement = new Announcement()
+module.exports.subtitleText = new SubtitleText()
+module.exports.playerControls = new PlayerControls()
+module.exports.playList = new Playlist()
+module.exports.settings = new Settings()
+module.exports.subtitleList = new SubtitleList()
+module.exports.castingMenu = new CastingMenu()
+
