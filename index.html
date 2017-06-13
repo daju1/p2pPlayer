@@ -237,19 +237,18 @@
         <button onClick = on_set_player_position()> set_player_position </button>
 
         <p>Player:</p>
-         <canvas id="fake-canvas" style={{display: 'none'}} />
            <div className="wcjs-player">
                 <!--PlayerHeader /-->
                 <!--PlayerRender /-->
-            <!--div className='render-holder' onWheel={this.wheel}>
-                <div id="canvasEffect" style={{ position: 'absolute', width: '100%', height: '100%' }} />
-                <div className="controls-background" onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} style={{zIndex: '1'}}>
-                    <paper-ripple id="rendererRipple" className="recenteringTouch" noink={this.state.rippleEffects ? this.state.clickPause ? false : true : true} fit />
+                <div className='render-holder' onWheel={this.wheel}>
+                    <div id="canvasEffect" style={{ position: 'absolute', width: '100%', height: '100%' }} />
+                    <div className="controls-background" onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} style={{zIndex: '1'}}>
+                        <paper-ripple id="rendererRipple" className="recenteringTouch" noink={this.state.rippleEffects ? this.state.clickPause ? false : true : true} fit />
+                    </div>
+                    <div ref="canvas-holder" className="canvas-holder" style={renderStyles.container}>
+                        <canvas id={'playerCanvas'} style={renderStyles.canvas} onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} ref="wcjs-render" />
+                    </div>
                 </div>
-                <div ref="canvas-holder" className="canvas-holder" style={renderStyles.container}>
-                    <canvas id={'playerCanvas'} style={renderStyles.canvas} onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} ref="wcjs-render" />
-                </div>
-            </div-->
 
                 <!--Announcement />
                 <SubtitleText />
@@ -261,6 +260,7 @@
                 <div className="castingBackground" />
                 <ReactNotify ref='notificator'/-->
             </div>
+         <canvas id="fake-canvas" style={{display: 'none'}} ></canvas>
        </div>
 
     <script src="js/main.js"></script>
