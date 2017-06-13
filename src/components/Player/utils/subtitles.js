@@ -41,7 +41,7 @@ subtitles.fetchSubs = (newObjective) => {
     if (subFinder) subFinder.terminate();
     
     if (process.env['devMode']) {
-        subFinder = new worker('../../build/js/components/Player/workers/subtitles/find.js', true);
+        subFinder = new worker('../../node_modules/p2pPlayer/src/components/Player/workers/subtitles/find.js', true);
     } else {
         subFinder = new worker('../../js/components/Player/workers/subtitles/find.js', true);
     }

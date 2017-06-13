@@ -1,4 +1,4 @@
-import Promise from 'bluebird';
+var Promise = require('bluebird');
 
 Promise.config({
     warnings: {
@@ -6,12 +6,12 @@ Promise.config({
     }
 });
 
-import osMod from 'opensubtitles-api';
-import fs from 'fs';
-import parser from '../../utils/parser';
-import atob from '../../utils/atob';
-import needle from 'needle';
-import async from 'async';
+var osMod = require('opensubtitles-api');
+var fs = require('fs');
+var parser = require('../../utils/parser');
+var atob = require('../../utils/atob');
+var needle = require('needle');
+var async = require('async');
 
 var objective = {};
 var checkedFiles = {};

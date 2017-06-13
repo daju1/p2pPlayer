@@ -53,6 +53,29 @@ var callback_torrent_ok = function()
 }
 
 class p2pPlayerAPI {
+    ready()
+    {
+        console.log(routes);
+        routes.framework.componentDidMount();
+        routes.mainMenu.componentDidMount();
+        routes.player.player.componentDidMount();
+
+        //routes.player.playerHeader.componentDidMount();
+        routes.player.playerRender.componentDidMount();
+        //routes.player.announcement.componentDidMount();
+        //routes.player.subtitleText.componentDidMount();
+        routes.player.playerControls.componentDidMount();
+        //routes.player.playList.componentDidMount();
+        routes.player.settings.componentDidMount();
+        //routes.player.subtitleList.componentDidMount();
+        //routes.player.castingMenu.componentDidMount();
+
+    }
+
+    constructor()
+    {
+        document.addEventListener("DOMContentLoaded", this.ready);
+    }
 
     open_local_torrent()
     {

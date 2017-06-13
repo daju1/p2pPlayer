@@ -92,7 +92,7 @@ var torrentActions = function() {
                             }
                         });
                     }
-                    // TODO fix ls_downloadType is null 
+
                     var ls_downloadType = ls('downloadType'); 
                     var ls_playerType = ls('playerType'); 
                     var ls_playerPath = ls('playerPath'); 
@@ -101,7 +101,7 @@ var torrentActions = function() {
                     if (ls_downloadType == 0 && !ls_playerType) {
                         // start with internal player
                         PlayerActions.addPlaylist(newFiles);
-                    } else if (ls_downloadType == 1 || ls_playerType || null == ls_downloadType) {
+                    } else if (ls_downloadType == 1 || ls_playerType) {
                         if (ls_playerType && ls_playerPath) {
                             // start with external player
                             // player.generatePlaylist(newFiles);

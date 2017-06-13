@@ -45,29 +45,22 @@ var {mouseTrap} = require('react-mousetrap');
 
 var lastPos = false;
 
-class Player {
-    //mixins: [PureRenderMixin],
-    constructor()
-    {
-        this.props = {}
-
-        this.componentWillMount();
-        this.componentDidMount();
-    }
+const Player = React.createClass({
+    mixins: [PureRenderMixin],
 
     getInitialState() {
         var visibilityState = VisibilityStore.getState();
         return {
             uiShown: visibilityState.uiShown
         }
-    }
+    },
     componentWillMount() {
         if (!ls.isSet('customSubSize'))
             ls('customSubSize', 100);
         VisibilityStore.listen(this.update);
         remote.getCurrentWindow().setMinimumSize(392, 228);
         webFrame.setZoomLevel(ls.isSet('zoomLevel') ? ls('zoomLevel') : 0);
-        //hotkeys.attach(this.props);
+        hotkeys.attach(this.props);
 
         if (ls('resizeOnPlaylist'))
             window.firstResize = true;
@@ -75,7 +68,7 @@ class Player {
         // fix window resize on top side    
         if (document.querySelector('header'))
             document.querySelector('header').style.WebkitAppRegion = "no-drag"
-    }
+    },
     componentWillUnmount() {
         VisibilityStore.unlisten(this.update);
         hotkeys.detach(this.props);
@@ -83,7 +76,6 @@ class Player {
         window.removeEventListener('contextmenu', contextMenu.listen);
         window.removeEventListener('mousemove', this.hover);
         var handler = document.getElementsByClassName("wcjs-player")[0];
-console.log(document);
 
         handler.removeEventListener('dragenter', this.dragEnter)
         handler.removeEventListener('dragover', this.nullEvent);
@@ -94,14 +86,14 @@ console.log(document);
         // fix window resize on top side
         if (document.querySelector('header'))
             document.querySelector('header').style.WebkitAppRegion = "drag"
-    }
+    },
     componentDidMount() {
         var announcer = document.getElementsByClassName('wcjs-announce')[0];
 //        if (['', '0'].indexOf(announcer.style.opacity) > -1) {
 //            events.buffering(0);
 //        }
         player.set({
-            //notifier: this.refs.notificator
+            notifier: this.refs.notificator
         });
         cacheUtil.start(player);
         player.loadState();
@@ -123,7 +115,7 @@ else{
             ControlActions.toggleFullscreen();
         }
 
-    }
+    },
     update() {
 //        console.log('player update');
         if (this.isMounted()) {
@@ -132,7 +124,7 @@ else{
                 uiShown: visibilityState.uiShown
             });
         }
-    }
+    },
     dragEnter(e) {
         var data = e && e.dataTransfer && e.dataTransfer.items ? e.dataTransfer.items : [];
         if (process.platform == 'darwin' && data && data.length && data[0].kind != 'file') {
@@ -172,10 +164,10 @@ else{
             dropDummy.addEventListener('dragleave', leaveMiddleware)
             dropDummy.addEventListener('drop', dropMiddleware)
         }
-    }
+    },
     nullEvent() {
         return false;
-    }
+    },
     fileDrop(e) {
 
         e.preventDefault();
@@ -364,22 +356,22 @@ else{
         },1000);
 
         return false;
-    }
+    },
     hideUI() {
         if (!ControlStore.getState().scrobbling)
             VisibilityActions.uiShown(false);
         else
             player.hoverTimeout = setTimeout(this.hideUI, 3000);
-    }
+    },
     hover(event) {
         var curPos = event.pageX+'x'+event.pageY;
         if (curPos != lastPos) {
             lastPos = curPos;
             player.hoverTimeout && clearTimeout(player.hoverTimeout);
-            //this.state.uiShown || VisibilityActions.uiShown(true);
+            this.state.uiShown || VisibilityActions.uiShown(true);
             player.hoverTimeout = setTimeout(this.hideUI, 3000);
         }
-    }
+    },
     render() {
         var cursorStyle = {
             cursor: this.state.uiShown ? 'pointer' : 'none'
@@ -400,7 +392,7 @@ else{
             </div>
         );*/
     }
-};
+});
 
 module.exports.player = new Player();
 

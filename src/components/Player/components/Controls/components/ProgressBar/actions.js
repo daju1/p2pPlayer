@@ -231,6 +231,6 @@ var ProgressActions = function() {
     }]);
     return ProgressActions;
 
-}
+}();
 
 module.exports = alt.createActions(ProgressActions);
