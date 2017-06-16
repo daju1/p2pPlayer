@@ -237,10 +237,10 @@
         <button onClick = on_set_player_position()> set_player_position </button>
 
         <p>Player:</p>
-           <div className="wcjs-player">
+           <div class="wcjs-player">
                 <!--PlayerHeader /-->
                 <!--PlayerRender /-->
-                <div className='render-holder' onWheel={this.wheel}>
+                <div class='render-holder' onWheel={this.wheel}>
                     <div id="canvasEffect" style={{ position: 'absolute', width: '100%', height: '100%' }} />
                     <div className="controls-background" onClick={this.handleTogglePlay} onDoubleClick={ControlActions.toggleFullscreen} style={{zIndex: '1'}}>
                         <paper-ripple id="rendererRipple" className="recenteringTouch" noink={this.state.rippleEffects ? this.state.clickPause ? false : true : true} fit />
